@@ -8,6 +8,5 @@ public class KaeseKaestchen {
 		// TODO Auto-generated method stub
 
 	}
-	//aenderung
 
 }
