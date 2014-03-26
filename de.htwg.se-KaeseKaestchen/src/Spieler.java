@@ -15,6 +15,7 @@ public class Spieler {
 	public Spieler(String pName){
 		name = pName;
 		//TODO zufällige farbe bla
+		//another test
 		
 	}
 }
