@@ -14,7 +14,7 @@ public class Spieler {
 	
 	public Spieler(String pName){
 		name = pName;
-		//TODO zufällige farbe
+		//TODO zufällige farbe bla
 		
 	}
 }
