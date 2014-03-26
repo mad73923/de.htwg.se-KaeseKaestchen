@@ -18,7 +18,7 @@ public class Spieler {
 		punkte = 0;
 		//TODO zufällige farbe
 		
-	}
+	} 
 
 	public Color getFarbe() {
 		return farbe;
