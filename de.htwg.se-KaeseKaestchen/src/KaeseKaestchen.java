@@ -11,6 +11,7 @@ public class KaeseKaestchen {
 	PlayField thePlayField;
 	UI theUI;
 	
+	
 	public KaeseKaestchen(boolean tui) {
 		if(tui){
 			theUI = new TUI(this);
@@ -18,6 +19,16 @@ public class KaeseKaestchen {
 			//TODO create GUI
 		}
 		theUI.showWelcomeScreen();
+	}
+	
+	public void startNewGame(String[] playerNames, int sizeX, int sizeY){
+		//TODO test if game is already running
+		//TODO set Player color
+		thePlayer = new Player[playerNames.length];
+		for(int i = 0; i<thePlayer.length; i++){
+			thePlayer[i] = new Player(playerNames[i]);
+		}
+		
 	}
 	
 	

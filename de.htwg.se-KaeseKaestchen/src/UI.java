@@ -9,5 +9,6 @@ public abstract class UI {
 	
 	abstract public void paintPlayingField();
 	abstract public void showWelcomeScreen();
+	abstract public void showMessage(String pMessage);
 
 }

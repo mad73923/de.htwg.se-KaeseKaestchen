@@ -17,6 +17,7 @@ public class Player {
 		name = pName;
 		points = 0;
 		//TODO zufaellige farbe
+		playerColor = Color.black;
 		
 	} 
 
