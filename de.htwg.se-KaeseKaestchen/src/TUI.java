@@ -21,7 +21,7 @@ public class TUI extends UI {
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		int numberOfPlayers = 0;
 		try {
-			//avoid numberOfPlayers = 0 or >10
+			//TODO avoid numberOfPlayers = 0 or >10
 			numberOfPlayers = Integer.parseInt(buffer.readLine());
 	      } catch (IOException ioe) {
 	    	 //TODO handle Exception
