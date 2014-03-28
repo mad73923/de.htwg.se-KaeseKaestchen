@@ -11,11 +11,19 @@ public class KaeseKaestchen {
 	PlayField thePlayField;
 	UI theUI;
 	
+	public KaeseKaestchen(boolean tui) {
+		if(tui){
+			theUI = new TUI(this);
+		}else{
+			//TODO create GUI
+		}
+		theUI.showWelcomeScreen();
+	}
+	
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+		new KaeseKaestchen(true);		
 
 	}
 	
