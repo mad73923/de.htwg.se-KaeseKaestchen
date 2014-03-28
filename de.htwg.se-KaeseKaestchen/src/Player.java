@@ -16,7 +16,7 @@ public class Player {
 	public Player(String pName){
 		name = pName;
 		points = 0;
-		//TODO zufällige farbe
+		//TODO zufaellige farbe
 		
 	} 
 
