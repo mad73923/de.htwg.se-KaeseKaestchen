@@ -21,6 +21,7 @@ public class TUI extends UI {
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		int numberOfPlayers = 0;
 		try {
+			//avoid numberOfPlayers = 0 or >10
 			numberOfPlayers = Integer.parseInt(buffer.readLine());
 	      } catch (IOException ioe) {
 	    	 //TODO handle Exception
@@ -41,6 +42,7 @@ public class TUI extends UI {
 		int fieldSize = 0;
 		System.out.print("Size of field:");
 		try {
+			//TODO avoid fieldsize = 0 or >10!?
 			fieldSize = Integer.parseInt(buffer.readLine());
 	      } catch (IOException ioe) {
 	    	 //TODO handle Exception
