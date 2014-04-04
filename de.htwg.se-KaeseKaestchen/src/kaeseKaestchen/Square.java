@@ -1,3 +1,4 @@
+package kaeseKaestchen;
 
 public class Square {
 	
