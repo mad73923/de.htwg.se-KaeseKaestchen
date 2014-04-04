@@ -14,12 +14,9 @@ public class Player {
 		
 	}
 	
-	public Player(String pName){
-		name = pName;
-		points = 0;
-		//TODO zufällige farbe
-		
-	} 
+	public void incrementPoints(){
+		points++;
+	}
 
 	public Color getColor() {
 		return playerColor;
