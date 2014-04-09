@@ -2,7 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 import kaeseKaestchen.KaeseKaestchen;
-import kaeseKaestchen.PlayField;
+import model.PlayField;
 
 import org.junit.Before;
 import org.junit.Test;

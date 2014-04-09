@@ -1,6 +1,13 @@
 package kaeseKaestchen;
 
-public class KaeseKaestchen {
+import java.util.Observable;
+
+import model.PlayField;
+import model.Player;
+
+import UI.UI;
+
+public class KaeseKaestchen extends Observable{
 
 	/**
 	 * @param args
@@ -11,14 +18,10 @@ public class KaeseKaestchen {
 	
 	PlayField thePlayField;
 	UI theUI;
-	
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+	public KaeseKaestchen(){
+		
 	}
-	
 	
 
 }

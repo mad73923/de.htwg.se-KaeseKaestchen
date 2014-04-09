@@ -1,4 +1,6 @@
-package kaeseKaestchen;
+package model;
+
+import kaeseKaestchen.KaeseKaestchen;
 
 public class PlayField {
 	

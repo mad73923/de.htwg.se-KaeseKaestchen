@@ -1,4 +1,5 @@
-package kaeseKaestchen;
+package model;
+
 
 public class Square {
 	

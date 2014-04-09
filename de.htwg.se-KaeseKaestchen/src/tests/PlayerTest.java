@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import java.awt.Color;
 
-import kaeseKaestchen.Player;
+import model.Player;
 
 import org.junit.Before;
 import org.junit.Test;
