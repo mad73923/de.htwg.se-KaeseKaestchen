@@ -1,4 +1,4 @@
-import kaeseKaestchen.KaeseKaestchen;
+import controller.KaeseKaestchenControl;
 
 
 public class KaeseKaestchenStart {
@@ -8,7 +8,7 @@ public class KaeseKaestchenStart {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new KaeseKaestchen();
+		new KaeseKaestchenControl();
 	}
 
 }

@@ -1,13 +1,13 @@
 package model;
 
-import kaeseKaestchen.KaeseKaestchen;
+import controller.KaeseKaestchenControl;
 
 public class PlayField {
 	
-	KaeseKaestchen theControl;
+	KaeseKaestchenControl theControl;
 	
 	
-	public PlayField(KaeseKaestchen pTheControl, int sizeX, int sizeY) {
+	public PlayField(KaeseKaestchenControl pTheControl, int sizeX, int sizeY) {
 		theControl = pTheControl;
 	}
 

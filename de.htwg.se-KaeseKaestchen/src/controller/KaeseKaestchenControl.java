@@ -1,4 +1,4 @@
-package kaeseKaestchen;
+package controller;
 
 import java.util.Observable;
 
@@ -7,7 +7,7 @@ import model.Player;
 
 import UI.UI;
 
-public class KaeseKaestchen extends Observable{
+public class KaeseKaestchenControl extends Observable{
 
 	/**
 	 * @param args
@@ -19,7 +19,7 @@ public class KaeseKaestchen extends Observable{
 	PlayField thePlayField;
 	UI theUI;
 
-	public KaeseKaestchen(){
+	public KaeseKaestchenControl(){
 		
 	}
 	

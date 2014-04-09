@@ -1,10 +1,10 @@
 package UI;
 
-import kaeseKaestchen.KaeseKaestchen;
+import controller.KaeseKaestchenControl;
 
 public class TUI extends UI {
 	
-	public TUI(KaeseKaestchen pTheControl){
+	public TUI(KaeseKaestchenControl pTheControl){
 		super(pTheControl);
 	}
 

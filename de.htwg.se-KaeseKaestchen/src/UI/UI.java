@@ -1,13 +1,13 @@
 package UI;
 
-import kaeseKaestchen.KaeseKaestchen;
+import controller.KaeseKaestchenControl;
 import util.IObserver;
 
 public abstract class UI implements IObserver{
 	
-	KaeseKaestchen theControl;
+	KaeseKaestchenControl theControl;
 	
-	public	UI(KaeseKaestchen pTheControl){
+	public	UI(KaeseKaestchenControl pTheControl){
 		theControl = pTheControl;
 		
 		//this.addUIToControlObservable();
