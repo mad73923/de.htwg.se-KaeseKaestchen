@@ -24,6 +24,7 @@ public class SquareTest {
     
     @Test
     public void testAllLinesHaveOwners(){    	
+    	assertEquals(false, theSquare.allLinesHaveOwners());
     	for(int i=0; i< theLines.length; i++){
     		assertEquals(false, theSquare.allLinesHaveOwners());
     		theSquare.getLines()[i].setOwner(new Player("Peter", Color.black));

@@ -19,8 +19,10 @@ public class Square {
 	
 	public boolean allLinesHaveOwners(){
 		for(int i =0; i<theLines.length; i++){
-			if(theLines[i].getOwner() == null)
-				return false;
+			if(theLines[i]!=null){
+				if(theLines[i].getOwner() == null)
+					return false;
+			}
 		}
 		return true;
 	}
