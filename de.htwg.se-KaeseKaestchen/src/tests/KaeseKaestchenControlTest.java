@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import controller.KaeseKaestchenControl;
 
-public class KaeseKaestchenTest {
+public class KaeseKaestchenControlTest {
     
     KaeseKaestchenControl theCheese;
 
