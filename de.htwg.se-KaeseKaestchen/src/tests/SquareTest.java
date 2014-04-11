@@ -12,7 +12,12 @@ public class SquareTest {
 
     @Before
     public void SetUp() throws Exception {
-        theSquare = new Square();
+        theSquare = new Square(new boolean[]{true,true,true,true});
+    }
+    
+    @Test
+    public void testConstructor(){
+    	assertEquals(expected, actual);
     }
 
 }
