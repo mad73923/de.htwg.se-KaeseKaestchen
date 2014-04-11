@@ -1,4 +1,5 @@
-import controller.KaeseKaestchenControl;
+package de.htwg.se.KaeseKaestchen.starter;
+import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
 
 
 public class KaeseKaestchenStart {

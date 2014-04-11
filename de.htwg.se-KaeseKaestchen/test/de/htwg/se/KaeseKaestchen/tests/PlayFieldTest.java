@@ -1,13 +1,13 @@
-package tests;
+package de.htwg.se.KaeseKaestchen.tests;
 
 import static org.junit.Assert.*;
-import model.Line;
-import model.PlayField;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import controller.KaeseKaestchenControl;
+import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.KaeseKaestchen.model.Line;
+import de.htwg.se.KaeseKaestchen.model.PlayField;
 
 public class PlayFieldTest {
     

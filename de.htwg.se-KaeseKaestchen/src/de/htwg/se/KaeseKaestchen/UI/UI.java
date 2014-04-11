@@ -1,6 +1,6 @@
-package UI;
+package de.htwg.se.KaeseKaestchen.UI;
 
-import controller.KaeseKaestchenControl;
+import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
 import util.IObserver;
 
 public abstract class UI implements IObserver{

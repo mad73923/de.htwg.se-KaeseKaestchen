@@ -1,4 +1,4 @@
-package model;
+package de.htwg.se.KaeseKaestchen.model;
 
 
 public class Square {

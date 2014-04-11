@@ -1,14 +1,14 @@
-package tests;
+package de.htwg.se.KaeseKaestchen.tests;
 
 import static org.junit.Assert.*;
 
 import java.awt.Color;
 
-import model.Line;
-import model.Player;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import de.htwg.se.KaeseKaestchen.model.Line;
+import de.htwg.se.KaeseKaestchen.model.Player;
 
 public class LineTest {
 	

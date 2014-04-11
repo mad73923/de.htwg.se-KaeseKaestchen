@@ -1,15 +1,15 @@
-package tests;
+package de.htwg.se.KaeseKaestchen.tests;
 
 import static org.junit.Assert.*;
 
 import java.awt.Color;
 
-import model.Line;
-import model.Player;
-import model.Square;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import de.htwg.se.KaeseKaestchen.model.Line;
+import de.htwg.se.KaeseKaestchen.model.Player;
+import de.htwg.se.KaeseKaestchen.model.Square;
 
 public class SquareTest {
     

@@ -1,6 +1,6 @@
-package model;
+package de.htwg.se.KaeseKaestchen.model;
 
-import controller.KaeseKaestchenControl;
+import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
 
 public class PlayField {
 	
