@@ -9,21 +9,13 @@ public class TUI extends UI {
 	}
 
 	@Override
-	public void update() {
+	protected void refreshUI() {
 		// TODO Auto-generated method stub
-
+		if(theControl.getPlayField() == null){
+			
+		}
 	}
 
-	@Override
-	public void paintPlayingField() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void showWelcomeScreen() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }

@@ -8,12 +8,12 @@ public class Line {
 		
 	}
 	
-	public boolean isNotSet(){
+	public boolean isOwnerNotSet(){
 		return theOwner == null;
 	}
 	
 	public boolean setOwner(Player newOwner){
-		if(isNotSet()){
+		if(isOwnerNotSet()){
 			theOwner = newOwner;
 			return true;
 		}
