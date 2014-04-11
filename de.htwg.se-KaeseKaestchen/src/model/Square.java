@@ -10,8 +10,7 @@ public class Square {
 		//TODO abfangen wenn linesAtTopRightBottomLeft.length > 4!!
 		theLines = new Line[linesAtTopRightBottomLeft.length];
 		for(int i=0; i<linesAtTopRightBottomLeft.length; i++){
-			if(linesAtTopRightBottomLeft[i] != null)
-				theLines[i]= linesAtTopRightBottomLeft[i];
+			theLines[i]= linesAtTopRightBottomLeft[i];
 		}
 		
 		owner = null;
