@@ -49,6 +49,12 @@ public class PlayField {
 		
 	}
 	
+	public boolean setLineFromToPointWithPlayer(Point start, Point end, Player owner){
+		//TODO check if valid line vector
+		//TODO implement method!
+		return false;
+	}
+	
 	public Square[][] getTheSquares(){
 		return this.theSquares;
 	}

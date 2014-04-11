@@ -1,4 +1,4 @@
-package util;
+package de.htwg.se.KaeseKaestchen.util;
 
 import java.util.Iterator;
 import java.util.Vector;

@@ -6,7 +6,7 @@ import de.htwg.se.KaeseKaestchen.UI.TUI;
 import de.htwg.se.KaeseKaestchen.UI.UI;
 import de.htwg.se.KaeseKaestchen.model.PlayField;
 import de.htwg.se.KaeseKaestchen.model.Player;
-import util.Observable;
+import de.htwg.se.KaeseKaestchen.util.Observable;
 
 public class KaeseKaestchenControl extends Observable{
 
