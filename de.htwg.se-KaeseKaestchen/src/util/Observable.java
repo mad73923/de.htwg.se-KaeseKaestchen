@@ -3,7 +3,7 @@ package util;
 import java.util.Iterator;
 import java.util.Vector;
 
-public class Obervable {
+public class Observable {
 	
 	protected Vector<IObserver> subscribers = new Vector<IObserver>(2);
 

@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.Observable;
+import util.Observable;
 
 import model.PlayField;
 import model.Player;

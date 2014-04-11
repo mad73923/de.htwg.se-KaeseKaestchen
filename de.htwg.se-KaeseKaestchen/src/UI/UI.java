@@ -10,13 +10,13 @@ public abstract class UI implements IObserver{
 	public	UI(KaeseKaestchenControl pTheControl){
 		theControl = pTheControl;
 		
-		//this.addUIToControlObservable();
+		theControl.addObserver(this);
 		//TODO observer problem
 		
 	}
 	
 	//abstract protected void addUIToControlObservable();
-	//theControl.addObserver(this);
+	
 	
 	abstract public void paintPlayingField();
 	abstract public void showWelcomeScreen();
