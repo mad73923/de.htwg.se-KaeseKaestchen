@@ -55,6 +55,20 @@ public class PlayField {
 		return false;
 	}
 	
+	public static boolean isValidLineAllegation(Point from, Point to){
+		if(from.getValX()<0 || from.getValY()<0)
+			return false;
+		if(to.getValX()<0 || to.getValY()<0)
+			return false;
+		if(Math.abs(to.getValX()-from.getValX())>1)
+			return false;
+		if(Math.abs(to.getValY()-from.getValY())>1)
+			return false;
+		if(Math.abs(to.getValX()-from.getValX())>=1 && Math.abs(to.getValY()-from.getValY())>=1)
+			return false;
+		return true;
+	}
+	
 	public Square[][] getTheSquares(){
 		return this.theSquares;
 	}

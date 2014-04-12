@@ -2,12 +2,14 @@ package de.htwg.se.KaeseKaestchen.tests;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Before;
 import org.junit.Test;
 
 import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
 import de.htwg.se.KaeseKaestchen.model.Line;
 import de.htwg.se.KaeseKaestchen.model.PlayField;
+import de.htwg.se.KaeseKaestchen.model.Point;
 
 public class PlayFieldTest {
     
@@ -57,6 +59,20 @@ public class PlayFieldTest {
     			}
     		}
     	}
+    }
+    
+    @Test
+    public void testIsValidLineAllegation(){
+    	//negative coordinates
+    	assertFalse(PlayField.isValidLineAllegation(new Point(-1,0), new Point(0,-10)));
+    	assertFalse(PlayField.isValidLineAllegation(new Point(0,0), new Point(0,-10)));
+    	//lines longer than 1
+    	assertFalse(PlayField.isValidLineAllegation(new Point(5,7), new Point(7, 7)));
+    	assertFalse(PlayField.isValidLineAllegation(new Point(5,7), new Point(5, 10)));
+    	//diagonal lines
+    	assertFalse(PlayField.isValidLineAllegation(new Point(5, 5), new Point(6, 6)));
+    	//correct line
+    	assertTrue(PlayField.isValidLineAllegation(new Point(5, 5), new Point(4, 5)));
     }
 
 }
