@@ -2,6 +2,8 @@ package de.htwg.se.KaeseKaestchen.tests;
 
 import static org.junit.Assert.*;
 
+import java.awt.Color;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +11,7 @@ import org.junit.Test;
 import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
 import de.htwg.se.KaeseKaestchen.model.Line;
 import de.htwg.se.KaeseKaestchen.model.PlayField;
+import de.htwg.se.KaeseKaestchen.model.Player;
 import de.htwg.se.KaeseKaestchen.model.Point;
 
 public class PlayFieldTest {
@@ -61,6 +64,8 @@ public class PlayFieldTest {
     
     @Test
     public void testIsValidLineAllegation(){
+    	//same points
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(3,3), new Point(3,3)));
     	//negative coordinates
     	assertFalse(thePlayField.isValidLineAllegation(new Point(-1,0), new Point(0,-10)));
     	assertFalse(thePlayField.isValidLineAllegation(new Point(0,0), new Point(0,-10)));
@@ -74,8 +79,26 @@ public class PlayFieldTest {
     	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(6, 5)));
     	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 6), new Point(5, 5)));
     	assertFalse(thePlayField.isValidLineAllegation(new Point(6, 5), new Point(5, 5)));
+    	//line on playfield border
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(0, 1), new Point(0, 2)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(1, 0), new Point(2, 0)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(5, 4)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(4, 5)));
     	//correct line
-    	assertTrue(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(4, 5)));
+    	assertTrue(thePlayField.isValidLineAllegation(new Point(3, 3), new Point(3, 4)));
+    }
+    
+    @Test
+    public void testSetLineFromToPointWithPlayer(){
+    	//invalid Points
+    	assertFalse(thePlayField.setLineFromToPointWithPlayer(new Point(-1, 0), new Point(0, 0), new Player("Tester", Color.black)));
+    	//swap start end end point
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(2, 1), new Point(1, 1), new Player("Tester", Color.black)));
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 2), new Point(1, 1), new Player("Tester", Color.black)));
+    	//correct line
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1,4), new Point(2,4), new Player("Tester", Color.black)));
+    	//line already set
+    	assertFalse(thePlayField.setLineFromToPointWithPlayer(new Point(1,4), new Point(2,4), new Player("Tester", Color.black)));
     }
 
 }

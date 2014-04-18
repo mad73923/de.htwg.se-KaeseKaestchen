@@ -49,26 +49,53 @@ public class PlayField {
 		//TODO implement method!
 		if(!this.isValidLineAllegation(start, end))
 			return false;
-		
-		return true;
+		if(start.getValX()>end.getValX() || start.getValY()>end.getValY()){
+			Point temp = start;
+			start = end;
+			end = temp;
+		}
+		boolean lineIshorizontal = false;
+		if(start.getValY() == end.getValY())
+			lineIshorizontal = true;
+		if(lineIshorizontal){
+			return theSquares[start.getValX()][start.getValY()].getLines()[0].setOwner(owner);
+		}
+		return theSquares[start.getValX()][start.getValY()].getLines()[3].setOwner(owner);
 	}
 	
+	
 	public boolean isValidLineAllegation(Point from, Point to){
+		//avoid same points
+		if(from.getValX()==to.getValX() && from.getValY()==to.getValY())
+			return false;
+		//avoid negative coodinates
 		if(from.getValX()<0 || from.getValY()<0)
 			return false;
 		if(to.getValX()<0 || to.getValY()<0)
 			return false;
+		//avoid lines longer than 1
 		if(Math.abs(to.getValX()-from.getValX())>1)
 			return false;
 		if(Math.abs(to.getValY()-from.getValY())>1)
 			return false;
+		//avoid diagonal lines
 		if(Math.abs(to.getValX()-from.getValX())>=1 && Math.abs(to.getValY()-from.getValY())>=1)
 			return false;
 		int sizeX = theSquares.length;
 		int sizeY = theSquares[0].length;
+		//avoid lines over playfield border
 		if(from.getValX()>sizeX || from.getValY()>sizeY)
 			return false;
 		if(to.getValX()>sizeX || to.getValY()>sizeY)
+			return false;
+		//avoid lines on playfield border
+		if(from.getValX()==0 && to.getValX()==0)
+			return false;
+		if(from.getValY()==0 && to.getValY()==0)
+			return false;
+		if(from.getValX()==sizeX && to.getValX()==sizeX)
+			return false;
+		if(from.getValY()==sizeY && to.getValY()==sizeY)
 			return false;
 		return true;
 	}
