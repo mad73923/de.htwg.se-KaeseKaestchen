@@ -62,15 +62,20 @@ public class PlayFieldTest {
     @Test
     public void testIsValidLineAllegation(){
     	//negative coordinates
-    	assertFalse(PlayField.isValidLineAllegation(new Point(-1,0), new Point(0,-10)));
-    	assertFalse(PlayField.isValidLineAllegation(new Point(0,0), new Point(0,-10)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(-1,0), new Point(0,-10)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(0,0), new Point(0,-10)));
     	//lines longer than 1
-    	assertFalse(PlayField.isValidLineAllegation(new Point(5,7), new Point(7, 7)));
-    	assertFalse(PlayField.isValidLineAllegation(new Point(5,7), new Point(5, 10)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(3,5), new Point(5, 5)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(1,1), new Point(1, 3)));
     	//diagonal lines
-    	assertFalse(PlayField.isValidLineAllegation(new Point(5, 5), new Point(6, 6)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(6, 6)));
+    	//lines longer than playfield
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(5, 6)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(6, 5)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(5, 6), new Point(5, 5)));
+    	assertFalse(thePlayField.isValidLineAllegation(new Point(6, 5), new Point(5, 5)));
     	//correct line
-    	assertTrue(PlayField.isValidLineAllegation(new Point(5, 5), new Point(4, 5)));
+    	assertTrue(thePlayField.isValidLineAllegation(new Point(5, 5), new Point(4, 5)));
     }
 
 }

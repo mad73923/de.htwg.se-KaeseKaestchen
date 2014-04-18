@@ -15,7 +15,7 @@ public class KaeseKaestchenControl extends Observable{
 	 */
 	
 	Player[] thePlayer;
-	Player recentPlayer;
+	Player currentPlayer;
 	
 	PlayField thePlayField;
 	UI theUI;
@@ -31,12 +31,26 @@ public class KaeseKaestchenControl extends Observable{
 		for(int i=0; i<playerNames.length; i++){
 			thePlayer[i] = new Player(playerNames[i], playerColors[i]);
 		}
+		this.pickRandomPlayerAsCurrentPlayer();
 		thePlayField = new PlayField(sizeX, sizeY);
 		notifyObservers();
 	}
 	
+	private void pickRandomPlayerAsCurrentPlayer(){
+		currentPlayer = thePlayer[randomNumberInLowAndHigh(0, thePlayer.length-1)];
+	}
+	
+	public static int randomNumberInLowAndHigh(int low, int high) {
+		high++;
+		return (int) (Math.random() * (high - low) + low);
+	}
+	
 	public PlayField getPlayField(){
 		return thePlayField;
+	}
+	
+	public Player getCurrentPlayer(){
+		return currentPlayer;
 	}
 
 }

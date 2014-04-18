@@ -21,8 +21,20 @@ public class KaeseKaestchenControlTest {
     @Test
     public void testStartNewGame(){
     	assertNull(theControl.getPlayField());
+    	assertNull(theControl.getCurrentPlayer());
     	theControl.startNewGame(new String[] {"Peter", "Paul"}, new Color[] {Color.black,  Color.blue}, 5,5);
     	assertNotNull(theControl.getPlayField());
+    	assertNotNull(theControl.getCurrentPlayer());
+    }
+    
+    @Test
+    public void testRandomNumberInLowAndHigh(){
+    	assertTrue(KaeseKaestchenControl.randomNumberInLowAndHigh(-100, 100)<101);
+    	assertTrue(KaeseKaestchenControl.randomNumberInLowAndHigh(-100, 100)>-101);
+    	int test = KaeseKaestchenControl.randomNumberInLowAndHigh(-1, 1);
+    	assertTrue(test<2 && test>-2);
+    	test = KaeseKaestchenControl.randomNumberInLowAndHigh(0, 0);
+    	assertTrue(test == 0);
     }
 
 }

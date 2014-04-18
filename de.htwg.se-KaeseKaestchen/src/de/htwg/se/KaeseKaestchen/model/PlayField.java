@@ -1,7 +1,5 @@
 package de.htwg.se.KaeseKaestchen.model;
 
-import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
-
 public class PlayField {
 	
 	Square[][] theSquares;
@@ -48,12 +46,14 @@ public class PlayField {
 	}
 	
 	public boolean setLineFromToPointWithPlayer(Point start, Point end, Player owner){
-		//TODO check if valid line vector
 		//TODO implement method!
-		return false;
+		if(!this.isValidLineAllegation(start, end))
+			return false;
+		
+		return true;
 	}
 	
-	public static boolean isValidLineAllegation(Point from, Point to){
+	public boolean isValidLineAllegation(Point from, Point to){
 		if(from.getValX()<0 || from.getValY()<0)
 			return false;
 		if(to.getValX()<0 || to.getValY()<0)
@@ -63,6 +63,12 @@ public class PlayField {
 		if(Math.abs(to.getValY()-from.getValY())>1)
 			return false;
 		if(Math.abs(to.getValX()-from.getValX())>=1 && Math.abs(to.getValY()-from.getValY())>=1)
+			return false;
+		int sizeX = theSquares.length;
+		int sizeY = theSquares[0].length;
+		if(from.getValX()>sizeX || from.getValY()>sizeY)
+			return false;
+		if(to.getValX()>sizeX || to.getValY()>sizeY)
 			return false;
 		return true;
 	}
