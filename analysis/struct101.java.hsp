@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local-project language="java" version="4.0.5258" xml-version="3" flavor="j2se">
+  <property name="hide-externals" value="true" />
+  <property name="show-needs-to-compile" value="false" />
+  <property name="relative-to" value="const(THIS_FILE)" />
+  <property name="root-file" value="home/matthias/gitRepositories/de.htwg.se-KaeseKaestchen" />
+  <property name="show-as-module" value="false" />
+  <property name="detail-mode" value="true" />
+  <property name="include-injected-dependency" value="true" />
+  <property name="project-excluded" />
+  <property name="project-type" value="eclipse_workspace" />
+  <property name="action-set-mod" value="1" />
+  <property name="hide-deprecated" value="false" />
+  <property name="parse-archive-in-archive" value="false" />
+  <classpath>
+    <classpathentry kind="lib" path="../de.htwg.se-KaeseKaestchen/bin" />
+  </classpath>
+  <pom-root-files />
+  <restructuring>
+    <set version="3" name="Model 1" hiview="Codemap" active="true" todo="false" list="0" />
+  </restructuring>
+  <grid-set sep="." version="4.0.5258">
+    <grid name="Diagram 1" enforce="true" locked="true" strict="false">
+      <row>
+        <cell name="starter" pattern="de.htwg.se.KaeseKaestchen.starter.?" vexpanded="false" visibility="public" drill="false">
+          <grid>
+            <row>
+              <cell name="KaeseKaestchenStart" pattern="de.htwg.se.KaeseKaestchen.starter.KaeseKaestchenStart" vexpanded="false" visibility="public" drill="false" />
+            </row>
+          </grid>
+        </cell>
+        <cell name="UI" pattern="de.htwg.se.KaeseKaestchen.UI.?" vexpanded="true" visibility="public" drill="false">
+          <grid>
+            <row>
+              <cell name="TUI" pattern="de.htwg.se.KaeseKaestchen.UI.TUI" vexpanded="false" visibility="public" drill="false" />
+            </row>
+            <row>
+              <cell name="UI" pattern="de.htwg.se.KaeseKaestchen.UI.UI" vexpanded="false" visibility="public" drill="false" />
+            </row>
+          </grid>
+        </cell>
+      </row>
+      <row>
+        <cell name="controller" pattern="de.htwg.se.KaeseKaestchen.controller.?" vexpanded="true" visibility="public" drill="false">
+          <grid>
+            <row>
+              <cell name="KaeseKaestchenControl" pattern="de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl" vexpanded="false" visibility="public" drill="false" />
+            </row>
+          </grid>
+        </cell>
+      </row>
+      <row>
+        <cell name="model" pattern="de.htwg.se.KaeseKaestchen.model.?" vexpanded="true" visibility="public" drill="false">
+          <grid>
+            <row>
+              <cell name="PlayField" pattern="de.htwg.se.KaeseKaestchen.model.PlayField" vexpanded="false" visibility="public" drill="false" />
+            </row>
+            <row>
+              <cell name="Square" pattern="de.htwg.se.KaeseKaestchen.model.Square" vexpanded="false" visibility="public" drill="false" />
+            </row>
+            <row>
+              <cell name="Line" pattern="de.htwg.se.KaeseKaestchen.model.Line" vexpanded="false" visibility="public" drill="false" />
+            </row>
+            <row>
+              <cell name="Player" pattern="de.htwg.se.KaeseKaestchen.model.Player" vexpanded="false" visibility="public" drill="false" />
+              <cell name="Point" pattern="de.htwg.se.KaeseKaestchen.model.Point" vexpanded="false" visibility="public" drill="false" />
+            </row>
+          </grid>
+        </cell>
+        <cell name="util" pattern="de.htwg.se.KaeseKaestchen.util.?" vexpanded="true" visibility="public" drill="false">
+          <grid>
+            <row>
+              <cell name="Observable" pattern="de.htwg.se.KaeseKaestchen.util.Observable" vexpanded="false" visibility="public" drill="false" />
+            </row>
+            <row>
+              <cell name="IObserver" pattern="de.htwg.se.KaeseKaestchen.util.IObserver" vexpanded="false" visibility="public" drill="false" />
+            </row>
+          </grid>
+        </cell>
+      </row>
+      <description>Top-level breakout</description>
+    </grid>
+  </grid-set>
+</local-project>
+
