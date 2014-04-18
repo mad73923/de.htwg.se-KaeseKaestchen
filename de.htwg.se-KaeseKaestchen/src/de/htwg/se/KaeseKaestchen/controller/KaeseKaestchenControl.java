@@ -31,7 +31,7 @@ public class KaeseKaestchenControl extends Observable{
 		for(int i=0; i<playerNames.length; i++){
 			thePlayer[i] = new Player(playerNames[i], playerColors[i]);
 		}
-		thePlayField = new PlayField(this, sizeX, sizeY);
+		thePlayField = new PlayField(sizeX, sizeY);
 		notifyObservers();
 	}
 	

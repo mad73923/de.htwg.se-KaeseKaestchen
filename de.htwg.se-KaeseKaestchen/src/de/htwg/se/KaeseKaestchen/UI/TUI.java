@@ -11,9 +11,7 @@ public class TUI extends UI {
 	@Override
 	protected void refreshUI() {
 		// TODO Auto-generated method stub
-		if(theControl.getPlayField() == null){
-			
-		}
+		
 	}
 
 	

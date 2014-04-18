@@ -4,12 +4,10 @@ import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
 
 public class PlayField {
 	
-	KaeseKaestchenControl theControl;
 	Square[][] theSquares;
 	
 	
-	public PlayField(KaeseKaestchenControl pTheControl, int sizeX, int sizeY) {
-		theControl = pTheControl;
+	public PlayField(int sizeX, int sizeY) {
 		theSquares = new Square[sizeX][sizeY];
 		createNewField(sizeX, sizeY);
 	}

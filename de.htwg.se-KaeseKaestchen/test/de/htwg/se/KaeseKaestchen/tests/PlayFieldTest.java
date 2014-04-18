@@ -14,7 +14,6 @@ import de.htwg.se.KaeseKaestchen.model.Point;
 public class PlayFieldTest {
     
     PlayField thePlayField;
-    KaeseKaestchenControl theControl;
     
     private static int SIZEX;
     private static int SIZEY;
@@ -23,8 +22,7 @@ public class PlayFieldTest {
     public void SetUp() throws Exception {
     	SIZEX = 5;
     	SIZEY = 5;
-    	theControl = new KaeseKaestchenControl();
-        thePlayField = new PlayField(theControl, SIZEX, SIZEY);
+        thePlayField = new PlayField(SIZEX, SIZEY);
     }
     
     @Test

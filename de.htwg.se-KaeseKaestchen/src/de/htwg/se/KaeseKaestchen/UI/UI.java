@@ -5,11 +5,9 @@ import de.htwg.se.KaeseKaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	
-	KaeseKaestchenControl theControl;
 	
-	public	UI(KaeseKaestchenControl pTheControl){
-		theControl = pTheControl;		
-		theControl.addObserver(this);
+	public	UI(KaeseKaestchenControl pTheControl){	
+		pTheControl.addObserver(this);
 		
 	}
 		
