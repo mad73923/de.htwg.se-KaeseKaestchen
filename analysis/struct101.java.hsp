@@ -2,8 +2,8 @@
 <local-project language="java" version="4.0.5258" xml-version="3" flavor="j2se">
   <property name="hide-externals" value="true" />
   <property name="show-needs-to-compile" value="false" />
-  <property name="relative-to" value="const(THIS_FILE)" />
   <property name="root-file" value="home/matthias/gitRepositories/de.htwg.se-KaeseKaestchen" />
+  <property name="relative-to" value="const(THIS_FILE)" />
   <property name="show-as-module" value="false" />
   <property name="detail-mode" value="true" />
   <property name="include-injected-dependency" value="true" />
