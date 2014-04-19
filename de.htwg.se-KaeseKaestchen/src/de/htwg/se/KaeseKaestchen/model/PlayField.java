@@ -12,6 +12,7 @@ public class PlayField {
 
 
 	private void createNewField(int sizeX, int sizeY) {
+		//TODO minimum size: 2x2
 		for(int x=0; x<sizeX; x++){
 			for(int y=0; y<sizeY; y++){
 				Line[] lines = new Line[4];
@@ -46,7 +47,6 @@ public class PlayField {
 	}
 	
 	public boolean setLineFromToPointWithPlayer(Point start, Point end, Player owner){
-		//TODO implement method!
 		if(!this.isValidLineAllegation(start, end))
 			return false;
 		if(start.getValX()>end.getValX() || start.getValY()>end.getValY()){
@@ -66,11 +66,11 @@ public class PlayField {
 	public boolean areThereEmptyLines(){
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length; y++){
-				if(theSquares[x][y].allLinesHaveOwners())
-					return false;
+				if(!theSquares[x][y].allLinesHaveOwners())
+					return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	

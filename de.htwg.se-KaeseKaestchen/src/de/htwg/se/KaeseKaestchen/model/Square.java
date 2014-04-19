@@ -7,7 +7,7 @@ public class Square {
 	Line[] theLines;
 	
 	public Square(Line[] linesAtTopRightBottomLeft) {
-		//TODO abfangen wenn linesAtTopRightBottomLeft.length > 4!!
+		//TODO abfangen wenn linesAtTopRightBottomLeft.length != 4!!
 		theLines = new Line[linesAtTopRightBottomLeft.length];
 		for(int i=0; i<linesAtTopRightBottomLeft.length; i++){
 			theLines[i]= linesAtTopRightBottomLeft[i];
