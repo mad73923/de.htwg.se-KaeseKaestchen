@@ -113,5 +113,16 @@ public class PlayFieldTest {
     	assertFalse(thePlayField.areThereEmptyLines());
     	
     }
+    
+    @Test
+    public void testCheckForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(){
+    	Player peter = new Player("Tester", Color.black);
+    	assertFalse(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(peter));
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(0, 1), new Point(1, 1), peter));
+    	assertTrue(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(peter));
+    	assertSame(peter, thePlayField.getTheSquares()[0][0].getOwner());
+    	
+    }
 
 }

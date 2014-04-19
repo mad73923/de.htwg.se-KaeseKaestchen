@@ -63,6 +63,21 @@ public class PlayField {
 		return theSquares[start.getValX()][start.getValY()].getLines()[3].setOwner(owner);
 	}
 	
+	public boolean checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(Player currentPlayer){
+		boolean newSquareMarked = false;
+		for(int x =0; x<theSquares.length; x++){
+			for(int y = 0; y<theSquares[x].length; y++){
+				if(theSquares[x][y].getOwner() == null){
+					if(theSquares[x][y].allLinesHaveOwners()){
+						theSquares[x][y].setOwner(currentPlayer);
+						newSquareMarked = true;
+					}
+				}
+			}
+		}
+		return newSquareMarked;
+	}
+	
 	public boolean areThereEmptyLines(){
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length; y++){
