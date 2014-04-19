@@ -100,5 +100,18 @@ public class PlayFieldTest {
     	//line already set
     	assertFalse(thePlayField.setLineFromToPointWithPlayer(new Point(1,4), new Point(2,4), new Player("Tester", Color.black)));
     }
+    
+    @Test
+    public void testAreThereEmptyLines(){
+    	assertTrue(thePlayField.areThereEmptyLines());
+    	thePlayField = new PlayField(2, 2);
+    	Player peter = new Player("Tester", Color.black);
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(0, 1), new Point(1, 1), peter));
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 2), new Point(1, 1), peter));
+    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(2, 1), new Point(1, 1), peter));
+    	assertFalse(thePlayField.areThereEmptyLines());
+    	
+    }
 
 }

@@ -63,6 +63,16 @@ public class PlayField {
 		return theSquares[start.getValX()][start.getValY()].getLines()[3].setOwner(owner);
 	}
 	
+	public boolean areThereEmptyLines(){
+		for(int x=0; x<theSquares.length; x++){
+			for(int y=0; y<theSquares[x].length; y++){
+				if(theSquares[x][y].allLinesHaveOwners())
+					return false;
+			}
+		}
+		return true;
+	}
+	
 	
 	public boolean isValidLineAllegation(Point from, Point to){
 		//avoid same points
