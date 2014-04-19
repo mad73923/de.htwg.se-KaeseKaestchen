@@ -70,6 +70,7 @@ public class PlayField {
 				if(theSquares[x][y].getOwner() == null){
 					if(theSquares[x][y].allLinesHaveOwners()){
 						theSquares[x][y].setOwner(currentPlayer);
+						currentPlayer.incrementPoints();
 						newSquareMarked = true;
 					}
 				}
