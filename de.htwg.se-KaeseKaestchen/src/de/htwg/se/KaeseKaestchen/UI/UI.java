@@ -8,10 +8,12 @@ import de.htwg.se.KaeseKaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	
+	KaeseKaestchenControl theControl;
+	
 	
 	public	UI(KaeseKaestchenControl pTheControl){	
 		pTheControl.addObserver(this);
-		
+		theControl = pTheControl;
 	}
 		
 	abstract protected void refreshUI();

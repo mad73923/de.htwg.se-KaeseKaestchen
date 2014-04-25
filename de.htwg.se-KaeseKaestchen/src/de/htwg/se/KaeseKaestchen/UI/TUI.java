@@ -15,7 +15,7 @@ public class TUI extends UI {
 
 	@Override
 	protected void showWelcomeMessage() {
-		// TODO Auto-generated method stub
+		System.out.println("Welcome to KaeseKaestchen!\n(c) Matthias Weis & Joey Rieg\nHTWG Konstanz SS 2014");
 	}
 
 	
