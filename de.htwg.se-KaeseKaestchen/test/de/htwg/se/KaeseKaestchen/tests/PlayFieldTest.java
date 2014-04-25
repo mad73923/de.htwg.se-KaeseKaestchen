@@ -11,7 +11,6 @@ import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
 import de.htwg.se.KaeseKaestchen.event.LineAlreadySetEvent;
 import de.htwg.se.KaeseKaestchen.event.NotValidLineAllegationEvent;
 import de.htwg.se.KaeseKaestchen.event.OKEvent;
