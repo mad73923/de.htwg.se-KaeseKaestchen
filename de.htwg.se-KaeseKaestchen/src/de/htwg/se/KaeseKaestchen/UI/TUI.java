@@ -11,7 +11,11 @@ public class TUI extends UI {
 	@Override
 	protected void refreshUI() {
 		// TODO Auto-generated method stub
-		
+	}
+
+	@Override
+	protected void showWelcomeMessage() {
+		// TODO Auto-generated method stub
 	}
 
 	

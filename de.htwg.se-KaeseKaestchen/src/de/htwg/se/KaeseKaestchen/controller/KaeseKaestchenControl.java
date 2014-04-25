@@ -4,6 +4,8 @@ import java.awt.Color;
 
 import de.htwg.se.KaeseKaestchen.UI.TUI;
 import de.htwg.se.KaeseKaestchen.UI.UI;
+import de.htwg.se.KaeseKaestchen.event.UpdateUIEvent;
+import de.htwg.se.KaeseKaestchen.event.WelcomeEvent;
 import de.htwg.se.KaeseKaestchen.model.PlayField;
 import de.htwg.se.KaeseKaestchen.model.Player;
 import de.htwg.se.KaeseKaestchen.util.Observable;
@@ -22,7 +24,7 @@ public class KaeseKaestchenControl extends Observable{
 
 	public KaeseKaestchenControl(){
 		theUI = new TUI(this);
-		notifyObservers();
+		notifyObservers(new WelcomeEvent());
 	}
 	
 	public void startNewGame(String[] playerNames, Color[] playerColors, int sizeX, int sizeY){
@@ -33,7 +35,7 @@ public class KaeseKaestchenControl extends Observable{
 		}
 		this.pickRandomPlayerAsCurrentPlayer();
 		thePlayField = new PlayField(sizeX, sizeY);
-		notifyObservers();
+		notifyObservers(new UpdateUIEvent());
 	}
 	
 	private void pickRandomPlayerAsCurrentPlayer(){
