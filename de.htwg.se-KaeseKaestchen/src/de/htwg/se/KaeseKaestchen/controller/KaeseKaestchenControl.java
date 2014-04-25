@@ -5,9 +5,12 @@ import java.awt.Color;
 import de.htwg.se.KaeseKaestchen.UI.TUI;
 import de.htwg.se.KaeseKaestchen.UI.UI;
 import de.htwg.se.KaeseKaestchen.event.Event;
+import de.htwg.se.KaeseKaestchen.event.LineAlreadySetEvent;
 import de.htwg.se.KaeseKaestchen.event.MessageUIEvent;
+import de.htwg.se.KaeseKaestchen.event.NotValidLineAllegationEvent;
 import de.htwg.se.KaeseKaestchen.event.OKEvent;
 import de.htwg.se.KaeseKaestchen.event.UpdateUIEvent;
+import de.htwg.se.KaeseKaestchen.event.WarningUIEvent;
 import de.htwg.se.KaeseKaestchen.event.WelcomeUIEvent;
 import de.htwg.se.KaeseKaestchen.model.PlayField;
 import de.htwg.se.KaeseKaestchen.model.Player;
@@ -53,12 +56,19 @@ public class KaeseKaestchenControl extends Observable{
 			//linie gesetzt
 			if(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(currentPlayer)){
 				//quadrat wurde geschlossen, kein spielerwechsel
+				notifyObservers(new UpdateUIEvent());
 			}else{
 				pickNextPlayerAsCurrentPlayer();
 				statusMessage = currentPlayer.getName()+" ist an der Reihe.";
 				notifyObservers(new MessageUIEvent());
 				notifyObservers(new UpdateUIEvent());
 			}
+		}else if(result.getClass().equals(LineAlreadySetEvent.class)){
+			warningMessage = "Diese Linie wurde bereits gezeichnet!";
+			notifyObservers(new WarningUIEvent());
+		}else if(result.getClass().equals(NotValidLineAllegationEvent.class)){
+			warningMessage = "Keine gültige Linie eingegeben.";
+			notifyObservers(new WarningUIEvent());
 		}
 	}
 	
