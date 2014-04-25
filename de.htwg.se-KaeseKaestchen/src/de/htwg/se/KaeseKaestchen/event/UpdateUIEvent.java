@@ -1,5 +1,5 @@
 package de.htwg.se.KaeseKaestchen.event;
 
-public class UpdateUIEvent implements Event {
+public class UpdateUIEvent extends Event {
 
 }

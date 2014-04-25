@@ -26,6 +26,8 @@ public abstract class UI implements IObserver{
 			refreshUI();
 		}else if(whatHappend.getClass().equals(WelcomeEvent.class)){
 			showWelcomeMessage();
+		}else{
+			System.out.println("Event not Supported: "+whatHappend.getClass().toString());
 		}
 	}
 	
