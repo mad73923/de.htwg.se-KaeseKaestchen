@@ -1,5 +1,10 @@
 package de.htwg.se.KaeseKaestchen.model;
 
+import de.htwg.se.KaeseKaestchen.event.Event;
+import de.htwg.se.KaeseKaestchen.event.LineAlreadySetEvent;
+import de.htwg.se.KaeseKaestchen.event.NotValidLineAllegationEvent;
+import de.htwg.se.KaeseKaestchen.event.OKEvent;
+
 public class PlayField {
 	
 	Square[][] theSquares;
@@ -46,9 +51,9 @@ public class PlayField {
 		
 	}
 	
-	public boolean setLineFromToPointWithPlayer(Point start, Point end, Player owner){
+	public Event setLineFromToPointWithPlayer(Point start, Point end, Player owner){
 		if(!this.isValidLineAllegation(start, end))
-			return false;
+			return new NotValidLineAllegationEvent();
 		if(start.getValX()>end.getValX() || start.getValY()>end.getValY()){
 			Point temp = start;
 			start = end;
@@ -57,10 +62,18 @@ public class PlayField {
 		boolean lineIshorizontal = false;
 		if(start.getValY() == end.getValY())
 			lineIshorizontal = true;
-		if(lineIshorizontal){
-			return theSquares[start.getValX()][start.getValY()].getLines()[0].setOwner(owner);
+		return this.setLineInSquares(lineIshorizontal, theSquares[start.getValX()][start.getValY()], owner);
+	}
+	
+	private Event setLineInSquares(boolean lineHorizontal, Square theSquare, Player owner){
+		int lineIndex = 0;
+		if(!lineHorizontal){
+			lineIndex = 3;
 		}
-		return theSquares[start.getValX()][start.getValY()].getLines()[3].setOwner(owner);
+		if(theSquare.getLines()[lineIndex].setOwner(owner)){
+			return new OKEvent();
+		}
+		return new LineAlreadySetEvent();
 	}
 	
 	public boolean checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(Player currentPlayer){

@@ -5,10 +5,15 @@ import static org.junit.Assert.*;
 import java.awt.Color;
 
 
+
+
+
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.KaeseKaestchen.event.LineAlreadySetEvent;
+import de.htwg.se.KaeseKaestchen.event.NotValidLineAllegationEvent;
+import de.htwg.se.KaeseKaestchen.event.OKEvent;
 import de.htwg.se.KaeseKaestchen.model.Line;
 import de.htwg.se.KaeseKaestchen.model.PlayField;
 import de.htwg.se.KaeseKaestchen.model.Player;
@@ -91,14 +96,14 @@ public class PlayFieldTest {
     @Test
     public void testSetLineFromToPointWithPlayer(){
     	//invalid Points
-    	assertFalse(thePlayField.setLineFromToPointWithPlayer(new Point(-1, 0), new Point(0, 0), new Player("Tester", Color.black)));
+    	assertEquals(new NotValidLineAllegationEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(-1, 0), new Point(0, 0), new Player("Tester", Color.black)));
     	//swap start end end point
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(2, 1), new Point(1, 1), new Player("Tester", Color.black)));
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 2), new Point(1, 1), new Player("Tester", Color.black)));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(2, 1), new Point(1, 1), new Player("Tester", Color.black)));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1, 2), new Point(1, 1), new Player("Tester", Color.black)));
     	//correct line
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1,4), new Point(2,4), new Player("Tester", Color.black)));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1,4), new Point(2,4), new Player("Tester", Color.black)));
     	//line already set
-    	assertFalse(thePlayField.setLineFromToPointWithPlayer(new Point(1,4), new Point(2,4), new Player("Tester", Color.black)));
+    	assertEquals(new LineAlreadySetEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1,4), new Point(2,4), new Player("Tester", Color.black)));
     }
     
     @Test
@@ -106,10 +111,10 @@ public class PlayFieldTest {
     	assertTrue(thePlayField.areThereEmptyLines());
     	thePlayField = new PlayField(2, 2);
     	Player peter = new Player("Tester", Color.black);
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(0, 1), new Point(1, 1), peter));
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 2), new Point(1, 1), peter));
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(2, 1), new Point(1, 1), peter));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(0, 1), new Point(1, 1), peter));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1, 2), new Point(1, 1), peter));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(2, 1), new Point(1, 1), peter));
     	assertFalse(thePlayField.areThereEmptyLines());
     	
     }
@@ -119,8 +124,8 @@ public class PlayFieldTest {
     	Player peter = new Player("Tester", Color.black);
     	assertSame(0, peter.getPoints());
     	assertFalse(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(peter));
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));
-    	assertTrue(thePlayField.setLineFromToPointWithPlayer(new Point(0, 1), new Point(1, 1), peter));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));
+    	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(0, 1), new Point(1, 1), peter));
     	assertTrue(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(peter));
     	assertSame(peter, thePlayField.getTheSquares()[0][0].getOwner());
     	assertSame(1, peter.getPoints());
