@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.htwg.se-KaeseKaestchen</groupId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SE2013WS-02-HtwgMonopoly</name>
+	<name>de.htwg.se-KaeseKaestchen</name>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
