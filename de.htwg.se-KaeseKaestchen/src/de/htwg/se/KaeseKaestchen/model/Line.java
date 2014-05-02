@@ -2,7 +2,7 @@ package de.htwg.se.KaeseKaestchen.model;
 
 public class Line {
 	
-	Player theOwner;
+	private Player theOwner;
 	
 	public Line(){
 		

@@ -3,9 +3,9 @@ import java.awt.Color;
 
 public class Player {
 	
-	Color playerColor;
-	String name;
-	int points;
+	private Color playerColor;
+	private String name;
+	private int points;
 	
 	public Player(String pName, Color pFarbe) {
 		playerColor = pFarbe;
