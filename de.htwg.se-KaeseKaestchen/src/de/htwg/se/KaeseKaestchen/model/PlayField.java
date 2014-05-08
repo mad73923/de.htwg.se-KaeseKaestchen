@@ -25,7 +25,7 @@ public class PlayField {
 				if(y == 0){
 					lines[0] = null;
 				}else{
-					lines[0] = theSquares[x][y-1].getLines()[2];
+					lines[0] = theSquares[x][y-1].getLines()[Square.BOTTOMLINEINDEX];
 				}
 				//handle right line
 				if(x == sizeX-1){
@@ -43,7 +43,7 @@ public class PlayField {
 				if(x == 0){
 					lines[3] = null;
 				}else {
-					lines[3] = theSquares[x-1][y].getLines()[1];
+					lines[3] = theSquares[x-1][y].getLines()[Square.RIGHTLINEINDEX];
 				}
 				theSquares[x][y] = new Square(lines);
 			}
@@ -66,9 +66,9 @@ public class PlayField {
 	}
 	
 	private Event setLineInSquares(boolean lineHorizontal, Square theSquare, Player owner){
-		int lineIndex = 0;
+		int lineIndex = Square.TOPLINEINDEX;
 		if(!lineHorizontal){
-			lineIndex = 3;
+			lineIndex = Square.LEFTLINEINDEX;
 		}
 		if(theSquare.getLines()[lineIndex].setOwner(owner)){
 			return new OKEvent();

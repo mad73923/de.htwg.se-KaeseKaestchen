@@ -6,6 +6,11 @@ public class Square {
 	Player owner;
 	Line[] theLines;
 	
+	public static final int TOPLINEINDEX = 0;
+	public static final int RIGHTLINEINDEX = 1;
+	public static final int BOTTOMLINEINDEX = 2;
+	public static final int LEFTLINEINDEX = 3;
+	
 	public Square(Line[] linesAtTopRightBottomLeft) {
 		//TODO abfangen wenn linesAtTopRightBottomLeft.length != 4!!
 		theLines = new Line[linesAtTopRightBottomLeft.length];
