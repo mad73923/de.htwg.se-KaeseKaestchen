@@ -1,9 +1,9 @@
-package de.htwg.se.KaeseKaestchen.util;
+package de.htwg.se.kaesekaestchen.util;
 
 import java.util.Iterator;
 import java.util.Vector;
 
-import de.htwg.se.KaeseKaestchen.event.Event;
+import de.htwg.se.kaesekaestchen.event.Event;
 
 public class Observable {
 	

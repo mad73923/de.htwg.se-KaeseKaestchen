@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.KaeseKaestchen.model.Point;
+import de.htwg.se.kaesekaestchen.model.Point;
 
 public class PointTest {
 	

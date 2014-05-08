@@ -1,12 +1,12 @@
-package de.htwg.se.KaeseKaestchen.UI;
+package de.htwg.se.kaesekaestchen.UI;
 
-import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
-import de.htwg.se.KaeseKaestchen.event.Event;
-import de.htwg.se.KaeseKaestchen.event.MessageUIEvent;
-import de.htwg.se.KaeseKaestchen.event.UpdateUIEvent;
-import de.htwg.se.KaeseKaestchen.event.WarningUIEvent;
-import de.htwg.se.KaeseKaestchen.event.WelcomeUIEvent;
-import de.htwg.se.KaeseKaestchen.util.IObserver;
+import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.kaesekaestchen.event.Event;
+import de.htwg.se.kaesekaestchen.event.MessageUIEvent;
+import de.htwg.se.kaesekaestchen.event.UpdateUIEvent;
+import de.htwg.se.kaesekaestchen.event.WarningUIEvent;
+import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
+import de.htwg.se.kaesekaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	

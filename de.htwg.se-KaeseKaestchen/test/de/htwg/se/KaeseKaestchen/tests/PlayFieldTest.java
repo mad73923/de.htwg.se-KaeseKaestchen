@@ -11,13 +11,13 @@ import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.KaeseKaestchen.event.LineAlreadySetEvent;
-import de.htwg.se.KaeseKaestchen.event.NotValidLineAllegationEvent;
-import de.htwg.se.KaeseKaestchen.event.OKEvent;
-import de.htwg.se.KaeseKaestchen.model.Line;
-import de.htwg.se.KaeseKaestchen.model.PlayField;
-import de.htwg.se.KaeseKaestchen.model.Player;
-import de.htwg.se.KaeseKaestchen.model.Point;
+import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
+import de.htwg.se.kaesekaestchen.event.NotValidLineAllegationEvent;
+import de.htwg.se.kaesekaestchen.event.OKEvent;
+import de.htwg.se.kaesekaestchen.model.Line;
+import de.htwg.se.kaesekaestchen.model.PlayField;
+import de.htwg.se.kaesekaestchen.model.Player;
+import de.htwg.se.kaesekaestchen.model.Point;
 
 public class PlayFieldTest {
     

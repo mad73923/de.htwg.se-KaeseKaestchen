@@ -7,8 +7,8 @@ import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
-import de.htwg.se.KaeseKaestchen.model.Player;
+import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.kaesekaestchen.model.Player;
 
 public class KaeseKaestchenControlTest {
     

@@ -1,10 +1,10 @@
-package de.htwg.se.KaeseKaestchen.model;
+package de.htwg.se.kaesekaestchen.model;
 
 
 public class Square {
 	
-	Player owner;
-	Line[] theLines;
+	private Player owner;
+	private Line[] theLines;
 	
 	public static final int TOPLINEINDEX = 0;
 	public static final int RIGHTLINEINDEX = 1;
@@ -14,7 +14,7 @@ public class Square {
 	public Square(Line[] linesAtTopRightBottomLeft) {
 		//TODO abfangen wenn linesAtTopRightBottomLeft.length != 4!!
 		theLines = new Line[linesAtTopRightBottomLeft.length];
-		for(int i=0; i<linesAtTopRightBottomLeft.length; i++){
+		for(int i=0; i<linesAtTopRightBottomLeft.length; i++) {
 			theLines[i]= linesAtTopRightBottomLeft[i];
 		}
 		
@@ -23,10 +23,11 @@ public class Square {
 	}
 	
 	public boolean allLinesHaveOwners(){
-		for(int i =0; i<theLines.length; i++){
-			if(theLines[i]!=null){
-				if(theLines[i].getOwner() == null)
+		for(int i =0; i<theLines.length; i++) {
+			if(theLines[i]!=null) {
+				if(theLines[i].getOwner() == null) {
 					return false;
+				}
 			}
 		}
 		return true;

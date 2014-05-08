@@ -7,8 +7,8 @@ import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.KaeseKaestchen.model.Line;
-import de.htwg.se.KaeseKaestchen.model.Player;
+import de.htwg.se.kaesekaestchen.model.Line;
+import de.htwg.se.kaesekaestchen.model.Player;
 
 public class LineTest {
 	
