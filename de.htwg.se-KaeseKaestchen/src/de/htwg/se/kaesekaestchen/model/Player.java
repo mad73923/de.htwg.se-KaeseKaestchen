@@ -1,4 +1,4 @@
-package de.htwg.se.KaeseKaestchen.model;
+package de.htwg.se.kaesekaestchen.model;
 import java.awt.Color;
 
 public class Player {

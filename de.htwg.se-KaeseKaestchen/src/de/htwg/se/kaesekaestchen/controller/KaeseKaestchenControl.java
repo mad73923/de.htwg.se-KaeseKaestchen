@@ -1,21 +1,21 @@
-package de.htwg.se.KaeseKaestchen.controller;
+package de.htwg.se.kaesekaestchen.controller;
 
 import java.awt.Color;
 
-import de.htwg.se.KaeseKaestchen.UI.TUI;
-import de.htwg.se.KaeseKaestchen.UI.UI;
-import de.htwg.se.KaeseKaestchen.event.Event;
-import de.htwg.se.KaeseKaestchen.event.LineAlreadySetEvent;
-import de.htwg.se.KaeseKaestchen.event.MessageUIEvent;
-import de.htwg.se.KaeseKaestchen.event.NotValidLineAllegationEvent;
-import de.htwg.se.KaeseKaestchen.event.OKEvent;
-import de.htwg.se.KaeseKaestchen.event.UpdateUIEvent;
-import de.htwg.se.KaeseKaestchen.event.WarningUIEvent;
-import de.htwg.se.KaeseKaestchen.event.WelcomeUIEvent;
-import de.htwg.se.KaeseKaestchen.model.PlayField;
-import de.htwg.se.KaeseKaestchen.model.Player;
-import de.htwg.se.KaeseKaestchen.model.Point;
-import de.htwg.se.KaeseKaestchen.util.Observable;
+import de.htwg.se.kaesekaestchen.UI.TUI;
+import de.htwg.se.kaesekaestchen.UI.UI;
+import de.htwg.se.kaesekaestchen.event.Event;
+import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
+import de.htwg.se.kaesekaestchen.event.MessageUIEvent;
+import de.htwg.se.kaesekaestchen.event.NotValidLineAllegationEvent;
+import de.htwg.se.kaesekaestchen.event.OKEvent;
+import de.htwg.se.kaesekaestchen.event.UpdateUIEvent;
+import de.htwg.se.kaesekaestchen.event.WarningUIEvent;
+import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
+import de.htwg.se.kaesekaestchen.model.PlayField;
+import de.htwg.se.kaesekaestchen.model.Player;
+import de.htwg.se.kaesekaestchen.model.Point;
+import de.htwg.se.kaesekaestchen.util.Observable;
 
 public class KaeseKaestchenControl extends Observable{
 

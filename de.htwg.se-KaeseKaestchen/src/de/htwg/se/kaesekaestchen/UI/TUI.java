@@ -1,6 +1,6 @@
-package de.htwg.se.KaeseKaestchen.UI;
+package de.htwg.se.kaesekaestchen.UI;
 
-import de.htwg.se.KaeseKaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
 
 public class TUI extends UI {
 	

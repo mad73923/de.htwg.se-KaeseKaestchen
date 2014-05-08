@@ -1,4 +1,4 @@
-package de.htwg.se.KaeseKaestchen.event;
+package de.htwg.se.kaesekaestchen.event;
 
 public class MessageUIEvent extends Event {
 

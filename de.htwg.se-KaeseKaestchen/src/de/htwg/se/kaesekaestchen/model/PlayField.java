@@ -1,9 +1,9 @@
-package de.htwg.se.KaeseKaestchen.model;
+package de.htwg.se.kaesekaestchen.model;
 
-import de.htwg.se.KaeseKaestchen.event.Event;
-import de.htwg.se.KaeseKaestchen.event.LineAlreadySetEvent;
-import de.htwg.se.KaeseKaestchen.event.NotValidLineAllegationEvent;
-import de.htwg.se.KaeseKaestchen.event.OKEvent;
+import de.htwg.se.kaesekaestchen.event.Event;
+import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
+import de.htwg.se.kaesekaestchen.event.NotValidLineAllegationEvent;
+import de.htwg.se.kaesekaestchen.event.OKEvent;
 
 public class PlayField {
 	
