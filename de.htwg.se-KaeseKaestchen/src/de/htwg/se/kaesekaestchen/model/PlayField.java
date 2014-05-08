@@ -7,7 +7,7 @@ import de.htwg.se.kaesekaestchen.event.OKEvent;
 
 public class PlayField {
 	
-	Square[][] theSquares;
+	private Square[][] theSquares;
 	
 	
 	public PlayField(int sizeX, int sizeY) {
@@ -52,16 +52,18 @@ public class PlayField {
 	}
 	
 	public Event setLineFromToPointWithPlayer(Point start, Point end, Player owner){
-		if(!this.isValidLineAllegation(start, end))
+		if(!this.isValidLineAllegation(start, end)) {
 			return new NotValidLineAllegationEvent();
+		}
 		if(start.getValX()>end.getValX() || start.getValY()>end.getValY()){
 			Point temp = start;
 			start = end;
 			end = temp;
 		}
 		boolean lineIshorizontal = false;
-		if(start.getValY() == end.getValY())
+		if(start.getValY() == end.getValY()) {
 			lineIshorizontal = true;
+		}
 		return this.setLineInSquares(lineIshorizontal, theSquares[start.getValX()][start.getValY()], owner);
 	}
 	
@@ -95,47 +97,59 @@ public class PlayField {
 	public boolean areThereEmptyLines(){
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length; y++){
-				if(!theSquares[x][y].allLinesHaveOwners())
+				if(!theSquares[x][y].allLinesHaveOwners()) {
 					return true;
+				}
 			}
 		}
 		return false;
 	}
 	
-	
 	public boolean isValidLineAllegation(Point from, Point to){
 		//avoid same points
-		if(from.getValX()==to.getValX() && from.getValY()==to.getValY())
+		if(from.getValX()==to.getValX() && from.getValY()==to.getValY()) {
 			return false;
+		}
 		//avoid negative coodinates
-		if(from.getValX()<0 || from.getValY()<0)
+		if(from.getValX()<0 || from.getValY()<0) {
 			return false;
-		if(to.getValX()<0 || to.getValY()<0)
+		}
+		if(to.getValX()<0 || to.getValY()<0) {
 			return false;
+		}
 		//avoid lines longer than 1
-		if(Math.abs(to.getValX()-from.getValX())>1)
+		if(Math.abs(to.getValX()-from.getValX())>1) {
 			return false;
-		if(Math.abs(to.getValY()-from.getValY())>1)
+		}
+		if(Math.abs(to.getValY()-from.getValY())>1) {
 			return false;
+		}
 		//avoid diagonal lines
-		if(Math.abs(to.getValX()-from.getValX())>=1 && Math.abs(to.getValY()-from.getValY())>=1)
+		if(Math.abs(to.getValX()-from.getValX())>=1 && Math.abs(to.getValY()-from.getValY())>=1) {
 			return false;
+		}
 		int sizeX = theSquares.length;
 		int sizeY = theSquares[0].length;
 		//avoid lines over playfield border
-		if(from.getValX()>sizeX || from.getValY()>sizeY)
+		if(from.getValX()>sizeX || from.getValY()>sizeY) {
 			return false;
-		if(to.getValX()>sizeX || to.getValY()>sizeY)
+		}
+		if(to.getValX()>sizeX || to.getValY()>sizeY) {
 			return false;
+		}
 		//avoid lines on playfield border
-		if(from.getValX()==0 && to.getValX()==0)
+		if(from.getValX()==0 && to.getValX()==0) {
 			return false;
-		if(from.getValY()==0 && to.getValY()==0)
+		}
+		if(from.getValY()==0 && to.getValY()==0) {
 			return false;
-		if(from.getValX()==sizeX && to.getValX()==sizeX)
+		}
+		if(from.getValX()==sizeX && to.getValX()==sizeX) {
 			return false;
-		if(from.getValY()==sizeY && to.getValY()==sizeY)
+		}
+		if(from.getValY()==sizeY && to.getValY()==sizeY) {
 			return false;
+		}
 		return true;
 	}
 	
