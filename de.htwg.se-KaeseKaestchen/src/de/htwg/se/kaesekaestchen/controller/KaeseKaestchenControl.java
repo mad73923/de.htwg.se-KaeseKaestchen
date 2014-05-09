@@ -2,8 +2,6 @@ package de.htwg.se.kaesekaestchen.controller;
 
 import java.awt.Color;
 
-import de.htwg.se.kaesekaestchen.UI.TUI;
-import de.htwg.se.kaesekaestchen.UI.UI;
 import de.htwg.se.kaesekaestchen.event.Event;
 import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
 import de.htwg.se.kaesekaestchen.event.MessageUIEvent;
@@ -15,6 +13,8 @@ import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
 import de.htwg.se.kaesekaestchen.model.PlayField;
 import de.htwg.se.kaesekaestchen.model.Player;
 import de.htwg.se.kaesekaestchen.model.Point;
+import de.htwg.se.kaesekaestchen.ui.TUI;
+import de.htwg.se.kaesekaestchen.ui.UI;
 import de.htwg.se.kaesekaestchen.util.Observable;
 
 public class KaeseKaestchenControl extends Observable{

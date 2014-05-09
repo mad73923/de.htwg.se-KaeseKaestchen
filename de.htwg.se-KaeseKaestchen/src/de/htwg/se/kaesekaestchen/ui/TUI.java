@@ -1,4 +1,4 @@
-package de.htwg.se.kaesekaestchen.UI;
+package de.htwg.se.kaesekaestchen.ui;
 
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
 

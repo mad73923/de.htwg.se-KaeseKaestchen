@@ -82,12 +82,10 @@ public class PlayField {
 		boolean newSquareMarked = false;
 		for(int x =0; x<theSquares.length; x++){
 			for(int y = 0; y<theSquares[x].length; y++){
-				if(theSquares[x][y].getOwner() == null){
-					if(theSquares[x][y].allLinesHaveOwners()){
-						theSquares[x][y].setOwner(currentPlayer);
-						currentPlayer.incrementPoints();
-						newSquareMarked = true;
-					}
+				if(theSquares[x][y].getOwner() == null && theSquares[x][y].allLinesHaveOwners()){
+					theSquares[x][y].setOwner(currentPlayer);
+					currentPlayer.incrementPoints();
+					newSquareMarked = true;
 				}
 			}
 		}

@@ -7,5 +7,10 @@ public abstract class Event {
 	public boolean equals(Object obj) {
 		return this.getClass().equals(obj.getClass());
 	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
 
 }
