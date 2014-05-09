@@ -12,7 +12,7 @@ public class KaeseKaestchenStart {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		KaeseKaestchenControl control = new KaeseKaestchenControl();
-		UI theUI = new TUI(control);
+		new TUI(control);
 	}
 
 }

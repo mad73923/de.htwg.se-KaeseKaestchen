@@ -78,8 +78,7 @@ public class KaeseKaestchenControl extends Observable{
 	}
 	
 	public static int randomNumberInLowAndHigh(int low, int high) {
-		high++;
-		return (int) (Math.random() * (high - low) + low);
+		return (int) (Math.random() * (high+1 - low) + low);
 	}
 	
 	public String getWarningMessage() {

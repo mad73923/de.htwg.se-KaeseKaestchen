@@ -19,10 +19,10 @@ public abstract class UI implements IObserver{
 	}
 
 		
-	abstract protected void refreshUI();
-	abstract protected void showWelcomeMessage();
-	abstract protected void showMessage();
-	abstract protected void showWarning();
+	protected abstract void refreshUI();
+	protected abstract void showWelcomeMessage();
+	protected abstract void showMessage();
+	protected abstract void showWarning();
 	
 	@Override
 	public void update(Event whatHappend) {
