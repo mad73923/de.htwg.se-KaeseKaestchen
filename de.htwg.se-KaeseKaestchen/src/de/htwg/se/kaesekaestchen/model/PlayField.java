@@ -119,14 +119,7 @@ public class PlayField {
 			return false;
 		}
 		int sizeX = theSquares.length;
-		int sizeY = theSquares[0].length;
-		//avoid lines over playfield border
-		if(from.getValX()>sizeX || from.getValY()>sizeY) {
-			return false;
-		}
-		if(to.getValX()>sizeX || to.getValY()>sizeY) {
-			return false;
-		}
+		int sizeY = theSquares[0].length;		
 		//avoid lines on playfield border
 		if(from.getValX()==0 && to.getValX()==0) {
 			return false;

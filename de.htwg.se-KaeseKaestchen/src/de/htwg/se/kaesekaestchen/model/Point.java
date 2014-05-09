@@ -79,6 +79,8 @@ public class Point {
 		return false;
 	}
 	
+
+	
 	
 	@Override
 	public boolean equals(Object obj) {
