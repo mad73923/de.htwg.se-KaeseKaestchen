@@ -1,4 +1,4 @@
-package de.htwg.se.KaeseKaestchen.controller;
+package de.htwg.se.kaesekaestchen.controller;
 
 import static org.junit.Assert.*;
 
