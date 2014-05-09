@@ -51,6 +51,7 @@ public class PlayField {
 		
 	}
 	
+	
 	public Event setLineFromToPointWithPlayer(Point start, Point end, Player owner){
 		if(!this.isValidLineAllegation(start, end)) {
 			return new NotValidLineAllegationEvent();

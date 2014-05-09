@@ -1,4 +1,4 @@
-package de.htwg.se.KaeseKaestchen.tests;
+package de.htwg.se.KaeseKaestchen.model;
 
 import static org.junit.Assert.*;
 
