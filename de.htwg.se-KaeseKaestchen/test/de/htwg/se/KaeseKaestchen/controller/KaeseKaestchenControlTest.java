@@ -8,9 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
-import de.htwg.se.kaesekaestchen.model.Player;
 import de.htwg.se.kaesekaestchen.ui.TUI;
-import de.htwg.se.kaesekaestchen.ui.UI;
 
 public class KaeseKaestchenControlTest {
     
@@ -44,7 +42,7 @@ public class KaeseKaestchenControlTest {
     @Test
     public void testNewMove(){
     	theControl.startNewGame(new String[] {"Peter", "Paul"}, new Color[] {Color.black,  Color.blue}, 2,2);
-    	Player tester = theControl.getCurrentPlayer();
+    	theControl.getCurrentPlayer();
     	theControl.newMove(1, 0, 1, 1);
     	assertEquals(theControl.getCurrentPlayer().getName()+" ist an der Reihe.", theControl.getStatusMessage());
     	theControl.newMove(0, 1, 1, 1);

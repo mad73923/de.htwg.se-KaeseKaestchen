@@ -10,7 +10,7 @@ import de.htwg.se.kaesekaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	
-	KaeseKaestchenControl theControl;
+	private KaeseKaestchenControl theControl;
 	
 	
 	public	UI(KaeseKaestchenControl pTheControl){	

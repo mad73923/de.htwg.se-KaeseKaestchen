@@ -21,13 +21,13 @@ public class KaeseKaestchenControl extends Observable{
 	 * @param args
 	 */
 	
-	Player[] thePlayer;
-	int currentPlayerIndex;
+	private Player[] thePlayer;
+	private int currentPlayerIndex;
 	
-	PlayField thePlayField;
+	private PlayField thePlayField;
 	
-	String warningMessage;
-	String statusMessage;
+	private String warningMessage;
+	private String statusMessage;
 
 	public KaeseKaestchenControl(){
 		notifyObservers(new WelcomeUIEvent());
