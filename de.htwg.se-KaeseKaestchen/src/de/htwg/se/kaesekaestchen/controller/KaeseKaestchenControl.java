@@ -13,8 +13,6 @@ import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
 import de.htwg.se.kaesekaestchen.model.PlayField;
 import de.htwg.se.kaesekaestchen.model.Player;
 import de.htwg.se.kaesekaestchen.model.Point;
-import de.htwg.se.kaesekaestchen.ui.TUI;
-import de.htwg.se.kaesekaestchen.ui.UI;
 import de.htwg.se.kaesekaestchen.util.Observable;
 
 public class KaeseKaestchenControl extends Observable{
@@ -27,13 +25,11 @@ public class KaeseKaestchenControl extends Observable{
 	int currentPlayerIndex;
 	
 	PlayField thePlayField;
-	UI theUI;
 	
 	String warningMessage;
 	String statusMessage;
 
 	public KaeseKaestchenControl(){
-		theUI = new TUI(this);
 		notifyObservers(new WelcomeUIEvent());
 		currentPlayerIndex = -1;
 	}

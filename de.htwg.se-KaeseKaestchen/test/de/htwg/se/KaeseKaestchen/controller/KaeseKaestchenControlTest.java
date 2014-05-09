@@ -9,6 +9,8 @@ import org.junit.Test;
 
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
 import de.htwg.se.kaesekaestchen.model.Player;
+import de.htwg.se.kaesekaestchen.ui.TUI;
+import de.htwg.se.kaesekaestchen.ui.UI;
 
 public class KaeseKaestchenControlTest {
     
@@ -17,6 +19,7 @@ public class KaeseKaestchenControlTest {
     @Before
     public void setUp() throws Exception {
         theControl =  new KaeseKaestchenControl();
+        new TUI(theControl);
     }
     
     @Test

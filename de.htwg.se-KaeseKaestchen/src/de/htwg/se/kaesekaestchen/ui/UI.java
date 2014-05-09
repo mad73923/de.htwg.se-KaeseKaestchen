@@ -15,8 +15,9 @@ public abstract class UI implements IObserver{
 	
 	public	UI(KaeseKaestchenControl pTheControl){	
 		pTheControl.addObserver(this);
-		theControl = pTheControl;
+		theControl = pTheControl;		
 	}
+
 		
 	abstract protected void refreshUI();
 	abstract protected void showWelcomeMessage();
