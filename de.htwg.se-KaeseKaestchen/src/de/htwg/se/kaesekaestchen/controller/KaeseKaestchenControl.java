@@ -30,6 +30,7 @@ public class KaeseKaestchenControl extends Observable{
 	private String statusMessage;
 
 	public KaeseKaestchenControl(){
+		//TODO UI zu diesem Zeitpunkt noch kein Observer
 		notifyObservers(new WelcomeUIEvent());
 		currentPlayerIndex = -1;
 	}
