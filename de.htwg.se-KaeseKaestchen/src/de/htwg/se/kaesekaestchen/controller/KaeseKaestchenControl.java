@@ -25,7 +25,7 @@ public class KaeseKaestchenControl extends Observable{
 	private int currentPlayerIndex;
 	
 	private PlayField thePlayField;
-	
+	private KaeseKaestchenState currentState;
 	private String warningMessage;
 	private String statusMessage;
 
@@ -72,6 +72,18 @@ public class KaeseKaestchenControl extends Observable{
 	
 	private void pickNextPlayerAsCurrentPlayer(){
 		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length-1);
+	}
+	
+	public void setCurrentState(KaeseKaestchenState theState){
+		currentState = theState;
+	}
+	
+	public void setStatusMessage(String theMessage){
+		statusMessage = theMessage;
+	}
+	
+	public void setWarningMessage(String theMessage){
+		warningMessage = theMessage;
 	}
 	
 	private void pickRandomPlayerAsCurrentPlayer(){
