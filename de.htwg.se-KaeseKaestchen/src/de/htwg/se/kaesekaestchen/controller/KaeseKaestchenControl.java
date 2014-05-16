@@ -94,6 +94,10 @@ public class KaeseKaestchenControl extends Observable{
 		return thePlayField;
 	}
 	
+	public String getPlayFieldString(){
+		return thePlayField.toString();
+	}
+	
 	public Player getCurrentPlayer(){
 		try {
 			return thePlayer[currentPlayerIndex];
