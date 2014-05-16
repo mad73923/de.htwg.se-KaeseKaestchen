@@ -71,7 +71,7 @@ public class KaeseKaestchenControl extends Observable{
 	}
 	
 	private void pickNextPlayerAsCurrentPlayer(){
-		currentPlayerIndex = currentPlayerIndex+1%(thePlayer.length-1);
+		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length-1);
 	}
 	
 	private void pickRandomPlayerAsCurrentPlayer(){

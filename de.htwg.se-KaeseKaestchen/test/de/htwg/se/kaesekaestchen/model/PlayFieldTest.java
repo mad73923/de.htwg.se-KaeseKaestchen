@@ -130,5 +130,10 @@ public class PlayFieldTest {
     	assertSame(peter, thePlayField.getTheSquares()[0][0].getOwner());
     	assertSame(1, peter.getPoints());
     }
+    
+    @Test
+    public void testToString(){
+    	System.out.println(thePlayField.toString());
+    }
 
 }

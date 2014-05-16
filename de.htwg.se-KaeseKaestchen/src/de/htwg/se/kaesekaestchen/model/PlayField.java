@@ -139,5 +139,32 @@ public class PlayField {
 	public Square[][] getTheSquares(){
 		return this.theSquares;
 	}
+	
+	@Override
+	public String toString() {
+		int fieldSize = 2;
+		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
+		for(int x = 0; x<erg.length; x++){
+			for(int y=0; y<erg[x].length; y++){
+				erg[x][y] = " ";
+			}
+		}
+		erg[0][0] = "+";
+		for(int x=0; x<theSquares.length; x++){
+			for(int y=0; y<theSquares[x].length; y++){
+				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = "+";
+				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = "+";
+				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = "+";
+			}
+		}
+		String resultString = "";
+		for(int x=0; x<erg.length; x++){
+			for(int y=0; y<erg.length; y++){
+				resultString+=erg[x][y];
+			}
+			resultString+="\n";
+		}
+		return resultString;
+	}
 
 }
