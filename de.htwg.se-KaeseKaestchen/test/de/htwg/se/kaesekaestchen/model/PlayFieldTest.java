@@ -23,13 +23,11 @@ public class PlayFieldTest {
     
     PlayField thePlayField;
     
-    private static int SIZEX;
-    private static int SIZEY;
+    private static int SIZEX = 5;
+    private static int SIZEY = 5;
 
     @Before
     public void SetUp() throws Exception {
-    	SIZEX = 5;
-    	SIZEY = 5;
         thePlayField = new PlayField(SIZEX, SIZEY);
     }
     
@@ -133,7 +131,7 @@ public class PlayFieldTest {
     
     @Test
     public void testToString(){
-    	System.out.println(thePlayField.toString());
+    	System.out.print(thePlayField.toString());
     }
 
 }
