@@ -146,17 +146,23 @@ public class PlayField {
 		String topLine = "";
 		String bottomLine = "";
 		String middleLines = "";
+		int numberForAlgorithm = -3;
+		int[] numberAlgorithm = new int[100];
+		for(int i = 2; i < 100; i++){
+			numberForAlgorithm = numberForAlgorithm + 2;
+			numberAlgorithm[i] = numberForAlgorithm; 
+		}
+		//TODO: fieldSize größer 10 abfangen
+		
 		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
-		System.out.println(theSquares.length);
+		System.out.println(theSquares.length); // test
 		for(int x = 0; x<erg.length; x++){
 			for(int y=0; y<erg[x].length; y++){
 				erg[x][y] = "";
 			}
 		}
-		//erg[0][0] = "b";
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length-1; y++){
-				//erg[(x+1)*fieldSize][0] = "|";
 			    erg[0][(y+1)*fieldSize] = topLine;
 			    topLine = new String(new char[fieldSize]).replace("\0", "--");
 			    topLine += "b";
@@ -170,8 +176,9 @@ public class PlayField {
 			    bottomLine += "b";
 
 			}
-
+			
 		}
+
 
 		String resultString = "";
 		for(int x=0; x<(erg.length); x++){
@@ -184,7 +191,9 @@ public class PlayField {
 			} else {
 				resultString+="|\n";
 			}
-			
+			if(x == theSquares.length + (2*fieldSize + numberAlgorithm[fieldSize])){
+				break;
+			}
 		}	
 		return resultString;
 	}
