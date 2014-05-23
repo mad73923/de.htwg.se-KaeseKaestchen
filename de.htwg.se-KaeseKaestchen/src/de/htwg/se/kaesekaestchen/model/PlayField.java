@@ -142,20 +142,31 @@ public class PlayField {
 	
 	@Override
 	public String toString() {
-		int fieldSize = 2;
+		int fieldSize = 3;
 		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
+		System.out.println(theSquares.length);
 		for(int x = 0; x<erg.length; x++){
 			for(int y=0; y<erg[x].length; y++){
-				erg[x][y] = " ";
+				erg[x][y] = "";
 			}
 		}
-		erg[0][0] = "+";
+		//erg[0][0] = "b";
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length; y++){
-				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = "+";
-				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = "+";
-				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = "+";
+			    //erg[(x+1)*fieldSize+x+1][0] = "c";
+				//erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = "  d";
+				//erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = "  b";
+				//erg[x*fieldSize+x][(y+1)*fieldSize+y + 1] = "  a";
+			    //erg[(x)*fieldSize][0] = "b";
+			    erg[(x)*fieldSize][0] = "a";
+			    //erg[*fieldSize][y+fieldSize] = "+--";
+			   // if(y == 0) {
+			     //   erg[(x*fieldSize])]
+			    //}
+			    erg[x*fieldSize][y*fieldSize] = "  b";
+			    erg[(theSquares.length-1)*fieldSize][y*fieldSize] = "--b";
 			}
+			 
 		}
 		String resultString = "";
 		for(int x=0; x<erg.length; x++){
