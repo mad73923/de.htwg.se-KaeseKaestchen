@@ -142,7 +142,7 @@ public class PlayField {
 	
 	@Override
 	public String toString() {
-		int fieldSize = 5;
+		int fieldSize = 4;
 		String topLine = "";
 		String bottomLine = "";
 		String middleLines = "";
@@ -156,30 +156,36 @@ public class PlayField {
 		//erg[0][0] = "b";
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length-1; y++){
-
+				//erg[(x+1)*fieldSize][0] = "|";
 			    erg[0][(y+1)*fieldSize] = topLine;
-			    topLine = new String(new char[fieldSize]).replace("\0", "-");
+			    topLine = new String(new char[fieldSize]).replace("\0", "--");
 			    topLine += "b";
 			    erg[(x)*fieldSize][0] = "a";
 			    erg[x*fieldSize][(y+1)*fieldSize] = middleLines;
-			    middleLines = new String(new char[fieldSize]).replace("\0", " ");
+			    middleLines = new String(new char[fieldSize]).replace("\0", "  ");
 			    middleLines += "b";		
 			    
 			    erg[(theSquares.length-1)*fieldSize][(y+1)*fieldSize] = bottomLine;
-			    bottomLine = new String(new char[fieldSize]).replace("\0", "-");
+			    bottomLine = new String(new char[fieldSize]).replace("\0", "--");
 			    bottomLine += "b";
 
 			}
-			 
+
 		}
 
 		String resultString = "";
-		for(int x=0; x<erg.length; x++){
+		for(int x=0; x<(erg.length); x++){
 			for(int y=0; y<erg.length; y++){
 				resultString+=erg[x][y];
+				
+				}
+			if(x % fieldSize == 0) {
+				resultString+="\n";
+			} else {
+				resultString+="|\n";
 			}
-			resultString+="\n";
-		}
+			
+		}	
 		return resultString;
 	}
 
