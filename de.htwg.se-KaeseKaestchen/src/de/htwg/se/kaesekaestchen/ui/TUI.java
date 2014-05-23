@@ -1,8 +1,11 @@
 package de.htwg.se.kaesekaestchen.ui;
 
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
+import java.util.Scanner;
 
 public class TUI extends UI {
+	private KaeseKaestchenControl controller;
+	Scanner in = new Scanner(System.in);
 	
 	public TUI(KaeseKaestchenControl pTheControl){
 		super(pTheControl);
@@ -14,9 +17,15 @@ public class TUI extends UI {
 	}
 
 	@Override
-	protected void showWelcomeMessage() {
+	public void showWelcomeMessage() {
 		//TODO collect new game data
-		//this.outPrint("Welcome to KaeseKaestchen!\n(c) Matthias Weis & Joey Rieg\nHTWG Konstanz SS 2014");
+		System.out.println("Welcome to KaeseKaestchen!\n(c) Matthias Weis & Joey Rieg\nHTWG Konstanz SS 2014\n\n");
+		System.out.println("Enter number of Players:\n");
+		int numberOfPlayers = in.nextInt();
+		String playerNames[] = new String[numberOfPlayers];
+		for(int i = 0; i < numberOfPlayers; i++){
+			playerNames[i] = in.next();
+		}
 	}
 
 	@Override
@@ -31,8 +40,8 @@ public class TUI extends UI {
 		
 	}
 	
-	private void outPrint(String string){
-		System.out.println(string);
+	public void outPrint(){
+		System.out.println("Test");
 	}
 
 	

@@ -180,7 +180,9 @@ public class PlayField {
 			    erg[(theSquares.length-1)*fieldSize][(y+1)*fieldSize] = bottomLine;
 			    bottomLine = new String(new char[fieldSize]).replace("\0", "--");
 			    bottomLine += "b";
+			    
 
+			
 			}
 			
 		}
@@ -197,9 +199,7 @@ public class PlayField {
 			} else {
 				resultString+="|\n";
 			}
-			if(x == theSquares.length){
-				//resultString+= "|";
-			}
+			
 			if(x == theSquares.length + (2*fieldSize + numberAlgorithmFieldSize[fieldSize] + numberAlgorithmSizeXY[sizeXY])){
 				break;
 			}
