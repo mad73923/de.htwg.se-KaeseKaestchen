@@ -30,19 +30,20 @@ public class TUI extends UI {
 		int numberOfPlayers = in.nextInt();
 		String playerNames[] = new String[numberOfPlayers];
 		for(int i = 0; i < numberOfPlayers; i++){
+			System.out.printf("Name of Player%d\n", i+1);
 			playerNames[i] = in.next();
 		}
-		System.out.println("Enter size of playfield:");
+		System.out.println("\nEnter size of playfield:");
 		//TODO x and y > 2
 		System.out.print("x: ");
 		sizeX = in.nextInt();
 		System.out.print("Y: ");
 		sizeY = in.nextInt();
-		System.out.printf("Playfield size is x: %d\ty: %d\n", sizeX, sizeY);
+		System.out.printf("Playfield size is x: %d\ty: %d\n\n", sizeX, sizeY);
 		System.out.println("Let's play!");
 		
 		controller.startNewGame(playerNames, colors, sizeX, sizeX);
-		
+		System.out.println(controller.getPlayField());
 	}
 
 	@Override

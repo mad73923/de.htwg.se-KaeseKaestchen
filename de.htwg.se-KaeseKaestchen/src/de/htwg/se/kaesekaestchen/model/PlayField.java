@@ -143,25 +143,23 @@ public class PlayField {
 	@Override
 	public String toString() {
 		int fieldSize = 5;
-		int sizeXY = 5;
+		int sizeX = theSquares.length;
 		String topLine = "";
 		String bottomLine = "";
 		String middleLines = "";
 		int numberForAlgorithmFieldSize = -3;
-		int numberForAlgorithmSizeXY = -16;
+		int numberForAlgorithmSizeX = -16;
 		int[] numberAlgorithmFieldSize = new int[100];
-		int [] numberAlgorithmSizeXY = new int[100];
+		int [] numberAlgorithmSizeX = new int[100];
 		for(int i = 2; i < 100; i++){
 			numberForAlgorithmFieldSize = numberForAlgorithmFieldSize + 2;
 			numberAlgorithmFieldSize[i] = numberForAlgorithmFieldSize;
-			numberForAlgorithmSizeXY = numberForAlgorithmSizeXY + 4;
-			numberAlgorithmSizeXY[i] = numberForAlgorithmSizeXY;
+			numberForAlgorithmSizeX = numberForAlgorithmSizeX + 4;
+			numberAlgorithmSizeX[i] = numberForAlgorithmSizeX;
 		}
 		//TODO: fieldSize größer 10 abfangen
 		
-		System.out.println(numberAlgorithmSizeXY[4]);
 		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
-		System.out.println(theSquares.length); // test
 		for(int x = 0; x<erg.length; x++){
 			for(int y=0; y<erg[x].length; y++){
 				erg[x][y] = "";
@@ -187,7 +185,6 @@ public class PlayField {
 			
 		}
 
-		System.out.println(erg.length);
 		String resultString = "";
 		for(int x=0; x<(erg.length); x++){
 			for(int y=0; y<erg.length; y++){
@@ -200,7 +197,7 @@ public class PlayField {
 				resultString+="|\n";
 			}
 			
-			if(x == theSquares.length + (2*fieldSize + numberAlgorithmFieldSize[fieldSize] + numberAlgorithmSizeXY[sizeXY])){
+			if(x == theSquares.length + (2*fieldSize + numberAlgorithmFieldSize[fieldSize] + numberAlgorithmSizeX[sizeX])){
 				break;
 			}
 		}	
