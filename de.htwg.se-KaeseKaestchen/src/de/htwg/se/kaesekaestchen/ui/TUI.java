@@ -44,6 +44,11 @@ public class TUI extends UI {
 		
 		controller.startNewGame(playerNames, colors, sizeX, sizeX);
 		System.out.println(controller.getPlayField());
+		
+		for(int i = 0; i < playerNames.length; i++) {
+			System.out.printf("%s: x Points\t", playerNames[i]);
+		}
+		
 	}
 
 	@Override
