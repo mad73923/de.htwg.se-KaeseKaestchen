@@ -6,7 +6,7 @@ import java.awt.Color;
 import java.util.Scanner;
 
 public class TUI extends UI {
-	private KaeseKaestchenControl controller;
+	private KaeseKaestchenControl controller = new KaeseKaestchenControl();
 	Scanner in = new Scanner(System.in);
 	Color[] colors= {Color.black, Color.blue, Color.green, Color.magenta, Color.orange, Color.red, Color.yellow};
 	int sizeX = 0;
@@ -41,6 +41,8 @@ public class TUI extends UI {
 		System.out.printf("Playfield size is x: %d\ty: %d\n", sizeX, sizeY);
 		System.out.println("Let's play!");
 		
+		controller.startNewGame(playerNames, colors, sizeX, sizeX);
+		
 	}
 
 	@Override
@@ -56,7 +58,7 @@ public class TUI extends UI {
 	}
 	
 	public void outPrint(){
-		System.out.println("Test");
+		showWelcomeMessage();
 	}
 
 	
