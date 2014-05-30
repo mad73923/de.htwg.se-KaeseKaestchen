@@ -2,13 +2,7 @@ package de.htwg.se.kaesekaestchen.controller;
 
 import java.awt.Color;
 
-import de.htwg.se.kaesekaestchen.event.Event;
-import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
-import de.htwg.se.kaesekaestchen.event.MessageUIEvent;
-import de.htwg.se.kaesekaestchen.event.NotValidLineAllegationEvent;
-import de.htwg.se.kaesekaestchen.event.OKEvent;
 import de.htwg.se.kaesekaestchen.event.UpdateUIEvent;
-import de.htwg.se.kaesekaestchen.event.WarningUIEvent;
 import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
 import de.htwg.se.kaesekaestchen.model.PlayField;
 import de.htwg.se.kaesekaestchen.model.Player;
@@ -49,29 +43,21 @@ public class KaeseKaestchenControl extends Observable{
 	public void newMove(int startX, int startY, int endX, int endY){
 		Point start = new Point(startX, startY);
 		Point end = new Point(endX, endY);
-		Event result = thePlayField.setLineFromToPointWithPlayer(start, end, thePlayer[currentPlayerIndex]);
-		if(result.getClass().equals(OKEvent.class)){
-			//linie gesetzt
-			if(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(thePlayer[currentPlayerIndex])){
-				//quadrat wurde geschlossen, kein spielerwechsel
-				notifyObservers(new UpdateUIEvent());
-			}else{
-				pickNextPlayerAsCurrentPlayer();
-				statusMessage = thePlayer[currentPlayerIndex].getName()+" ist an der Reihe.";
-				notifyObservers(new MessageUIEvent());
-				notifyObservers(new UpdateUIEvent());
-			}
-		}else if(result.getClass().equals(LineAlreadySetEvent.class)){
-			warningMessage = "Diese Linie wurde bereits gezeichnet!";
-			notifyObservers(new WarningUIEvent());
-		}else if(result.getClass().equals(NotValidLineAllegationEvent.class)){
-			warningMessage = "Keine gültige Linie eingegeben.";
-			notifyObservers(new WarningUIEvent());
-		}
+		currentState = new KaeseKaestchenStateMove(this);
+		currentState.nextState(thePlayField.setLineFromToPointWithPlayer(start, end, thePlayer[currentPlayerIndex]));
+
 	}
 	
-	private void pickNextPlayerAsCurrentPlayer(){
+	public boolean checkPlayfieldForCompleteSquares(){
+		return thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(thePlayer[currentPlayerIndex]);		
+	}
+	
+	public void pickNextPlayerAsCurrentPlayer(){
 		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length-1);
+	}
+	
+	public String getCurrentPlayerName(){
+		return this.thePlayer[currentPlayerIndex].getName();
 	}
 	
 	public void setCurrentState(KaeseKaestchenState theState){

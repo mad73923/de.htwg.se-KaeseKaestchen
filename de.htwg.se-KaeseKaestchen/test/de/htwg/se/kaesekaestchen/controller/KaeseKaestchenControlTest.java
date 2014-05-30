@@ -49,7 +49,7 @@ public class KaeseKaestchenControlTest {
     	theControl.newMove(0, 1, 1, 1);
     	assertEquals("Diese Linie wurde bereits gezeichnet!", theControl.getWarningMessage());
     	theControl.newMove(0, 0, 1, 1);
-    	assertEquals("Keine gültige Linie eingegeben.", theControl.getWarningMessage());
+    	assertEquals("Keine gueltige Linie eingegeben.", theControl.getWarningMessage());
     }
 
 }

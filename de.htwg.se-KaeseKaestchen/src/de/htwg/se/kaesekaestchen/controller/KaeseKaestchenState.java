@@ -10,5 +10,5 @@ public abstract class KaeseKaestchenState {
 		theControl = pTheControl;
 	}
 	
-	public abstract void nextState(KaeseKaestchenControl theControl, Event whatHappend);
+	public abstract void nextState(Event whatHappend);
 }

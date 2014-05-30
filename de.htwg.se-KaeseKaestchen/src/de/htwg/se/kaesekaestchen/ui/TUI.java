@@ -30,10 +30,6 @@ public class TUI extends UI {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	private void outPrint(String string){
-		System.out.println(string);
-	}
 
 	
 
