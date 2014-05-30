@@ -19,7 +19,7 @@ public class TUI extends UI {
 
 	@Override
 	protected void refreshUI() {
-		
+	System.out.println(controller.getPlayField());	
 		
 	}
 
@@ -28,31 +28,32 @@ public class TUI extends UI {
 
 		try {
 			//TODO collect new game data
-			System.out.println("Welcome to KaeseKaestchen!\n(c) Matthias Weis & Joey Rieg\nHTWG Konstanz SS 2014\n\n");
-			System.out.printf("Enter number of Players (max. %d Players):\n", colors.length);
+			printStringln("Welcome to KaeseKaestchen!\n(c) Matthias Weis & Joey Rieg\nHTWG Konstanz SS 2014\n\n");
+			printString("Enter number of Players (max. " + colors.length + " Players):\n");
 			
 			int numberOfPlayers = in.nextInt();
 			String playerNames[] = new String[numberOfPlayers];
 			
 			
 			for(int i = 0; i < numberOfPlayers; i++){
-				System.out.printf("Name of Player%d\n", i+1);
+				System.out.printf("Name of Player" + (i+1) + "\n");
 				playerNames[i] = in.next();
 			}
 			
 			
-			System.out.println("\nEnter size of playfield:");
-			System.out.print("x: ");
+			printStringln("\nEnter size of playfield:");
+			printString("x: ");
 			sizeX = in.nextInt();
-			System.out.print("Y: ");
+			printString("Y: ");
 			sizeY = in.nextInt();
 			if(sizeX <= 2 || sizeY <= 2){
 				// throw Exception
 			}
 			
 			
-			System.out.printf("Playfield size is x: %d\ty: %d\n\n", sizeX, sizeY);
-			System.out.println("Let's play!");
+			printStringln("Playfield size is x: " + sizeX + "\t" + 
+							  				"y: " + sizeY + "\n");
+			printStringln("Let's play!");
 			
 			
 			
@@ -60,20 +61,20 @@ public class TUI extends UI {
 			
 			refreshUI();
 			// UPDATE UI --> only Playfield with Players and Points
-			System.out.println(controller.getPlayField());
+			//System.out.println(controller.getPlayField());
 			
 			for(int i = 0; i < playerNames.length; i++) {
 				//Where to get points of players???
-				System.out.printf("%s: x Points\t", playerNames[i]);
+				printString(playerNames[i] + ": x Points\t");
 				if(i == 3) {
-					System.out.println();
+					printStringln("");
 				}
 			}
 				
 			
 		} catch (Exception e) {
 			if (e instanceof InputMismatchException) {
-				System.out.println("Please type a number!");
+				printStringln("Please type a number!");
 				
 			}
 			
@@ -91,6 +92,14 @@ public class TUI extends UI {
 	protected void showWarning() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private void printStringln(String s) {
+		System.out.println(s);
+	}
+	
+	private void printString(String s) {
+		System.out.print(s);
 	}
 	
 	public void outPrint(){
