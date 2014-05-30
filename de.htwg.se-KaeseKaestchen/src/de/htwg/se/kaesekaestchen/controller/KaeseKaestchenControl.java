@@ -98,6 +98,15 @@ public class KaeseKaestchenControl extends Observable{
 		return thePlayField.toString();
 	}
 	
+	public int[] getPlayerPoints() {
+		int[] playerPoints = new int[thePlayer.length];
+		for (int i = 0; i < thePlayer.length; i++) {
+			playerPoints[i] = thePlayer[i].getPoints();
+		}
+		return playerPoints;
+		
+	}
+	
 	public Player getCurrentPlayer(){
 		try {
 			return thePlayer[currentPlayerIndex];
