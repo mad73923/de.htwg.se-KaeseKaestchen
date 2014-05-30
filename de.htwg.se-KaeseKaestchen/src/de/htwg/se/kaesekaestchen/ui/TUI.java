@@ -7,10 +7,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TUI extends UI {
-	Scanner in = new Scanner(System.in);
-	Color[] colors= {Color.black, Color.blue, Color.green, Color.magenta, Color.orange, Color.red, Color.yellow};
-	int sizeX = 0;
-	int sizeY = 0;
+	private Scanner in = new Scanner(System.in);
+	private Color[] colors= {Color.black, Color.blue, Color.green, Color.magenta, Color.orange, Color.red, Color.yellow};
+	private int sizeX = 0;
+	private int sizeY = 0;
 	
 	public TUI(KaeseKaestchenControl pTheControl){
 		super(pTheControl);
@@ -18,7 +18,7 @@ public class TUI extends UI {
 
 	@Override
 	protected void refreshUI() {
-	System.out.println(theControl.getPlayFieldString());
+		printStringln(theControl.getPlayFieldString());
 	}
 
 	@Override
@@ -57,9 +57,6 @@ public class TUI extends UI {
 			
 			theControl.startNewGame(playerNames, colors, sizeX+1, sizeY+1);
 			
-			//refreshUI();
-			// UPDATE UI --> only Playfield with Players and Points
-			//System.out.println(controller.getPlayField());
 			
 			for(int i = 0; i < playerNames.length; i++) {
 				//Where to get points of players???
@@ -82,14 +79,12 @@ public class TUI extends UI {
 
 	@Override
 	protected void showMessage() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
 	protected void showWarning() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	
