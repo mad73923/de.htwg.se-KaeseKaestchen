@@ -10,7 +10,8 @@ import de.htwg.se.kaesekaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	
-	KaeseKaestchenControl theControl;
+	@SuppressWarnings("unused")
+	private KaeseKaestchenControl theControl;
 	
 	
 	public	UI(KaeseKaestchenControl pTheControl){	
@@ -19,10 +20,10 @@ public abstract class UI implements IObserver{
 	}
 
 		
-	abstract protected void refreshUI();
-	abstract protected void showWelcomeMessage();
-	abstract protected void showMessage();
-	abstract protected void showWarning();
+	protected abstract void refreshUI();
+	protected abstract void showWelcomeMessage();
+	protected abstract void showMessage();
+	protected abstract void showWarning();
 	
 	@Override
 	public void update(Event whatHappend) {

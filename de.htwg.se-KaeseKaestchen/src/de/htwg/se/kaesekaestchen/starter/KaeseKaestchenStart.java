@@ -1,7 +1,6 @@
 package de.htwg.se.kaesekaestchen.starter;
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
 import de.htwg.se.kaesekaestchen.ui.TUI;
-import de.htwg.se.kaesekaestchen.ui.UI;
 
 
 public class KaeseKaestchenStart {
@@ -9,10 +8,12 @@ public class KaeseKaestchenStart {
 	/**
 	 * @param args
 	 */
+	public KaeseKaestchenStart() {
+		
+	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		KaeseKaestchenControl control = new KaeseKaestchenControl();
-		UI theUI = new TUI(control);
+		new TUI(control);
 	}
 
 }

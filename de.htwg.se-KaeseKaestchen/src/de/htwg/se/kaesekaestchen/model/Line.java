@@ -3,8 +3,12 @@ package de.htwg.se.kaesekaestchen.model;
 public class Line {
 	
 	private Player theOwner;
+	private Point startPoint;
+	private Point endPoint;
 	
-	public Line(){
+	public Line(Point pStartPoint, Point pEndPoint){
+		startPoint = pStartPoint;
+		endPoint = pEndPoint;
 		
 	}
 	
@@ -22,6 +26,10 @@ public class Line {
 	
 	public Player getOwner(){
 		return theOwner;
+	}
+	
+	public double getLength(){
+		return startPoint.getDistanceToPoint(endPoint);
 	}
 
 }

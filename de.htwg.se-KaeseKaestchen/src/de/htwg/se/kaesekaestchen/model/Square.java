@@ -14,9 +14,7 @@ public class Square {
 	public Square(Line[] linesAtTopRightBottomLeft) {
 		//TODO abfangen wenn linesAtTopRightBottomLeft.length != 4!!
 		theLines = new Line[linesAtTopRightBottomLeft.length];
-		for(int i=0; i<linesAtTopRightBottomLeft.length; i++) {
-			theLines[i]= linesAtTopRightBottomLeft[i];
-		}
+		System.arraycopy(linesAtTopRightBottomLeft, 0, theLines, 0, linesAtTopRightBottomLeft.length);
 		
 		owner = null;
 		

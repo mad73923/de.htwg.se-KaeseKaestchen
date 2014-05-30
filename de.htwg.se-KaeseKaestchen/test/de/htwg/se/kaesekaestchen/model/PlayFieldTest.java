@@ -1,4 +1,4 @@
-package de.htwg.se.KaeseKaestchen.model;
+package de.htwg.se.kaesekaestchen.model;
 
 import static org.junit.Assert.*;
 
@@ -23,13 +23,11 @@ public class PlayFieldTest {
     
     PlayField thePlayField;
     
-    private static int SIZEX;
-    private static int SIZEY;
+    private static int SIZEX = 5;
+    private static int SIZEY = 5;
 
     @Before
     public void SetUp() throws Exception {
-    	SIZEX = 5;
-    	SIZEY = 5;
         thePlayField = new PlayField(SIZEX, SIZEY);
     }
     
@@ -129,6 +127,11 @@ public class PlayFieldTest {
     	assertTrue(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(peter));
     	assertSame(peter, thePlayField.getTheSquares()[0][0].getOwner());
     	assertSame(1, peter.getPoints());
+    }
+    
+    @Test
+    public void testToString(){
+    	System.out.print(thePlayField.toString());
     }
 
 }

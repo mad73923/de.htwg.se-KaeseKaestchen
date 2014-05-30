@@ -1,4 +1,4 @@
-package de.htwg.se.KaeseKaestchen.model;
+package de.htwg.se.kaesekaestchen.model;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import de.htwg.se.kaesekaestchen.model.Line;
 import de.htwg.se.kaesekaestchen.model.Player;
+import de.htwg.se.kaesekaestchen.model.Point;
 import de.htwg.se.kaesekaestchen.model.Square;
 
 public class SquareTest {
@@ -18,7 +19,7 @@ public class SquareTest {
 
     @Before
     public void SetUp() throws Exception {
-    	theLines = new Line[] {new Line(), new Line(), new Line(), new Line()};
+    	theLines = new Line[] {new Line(new Point(0,0), new Point(1,0)), new Line(new Point(1,0), new Point(1,1)), new Line(new Point(1,1), new Point(0,1)), new Line(new Point(0,1), new Point(0,0))};
         theSquare = new Square(theLines);
     }
     

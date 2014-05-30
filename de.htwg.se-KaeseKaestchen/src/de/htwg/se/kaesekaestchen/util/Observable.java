@@ -1,24 +1,24 @@
 package de.htwg.se.kaesekaestchen.util;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Vector;
-
+import java.util.List;
 import de.htwg.se.kaesekaestchen.event.Event;
 
 public class Observable {
 	
-	protected Vector<IObserver> subscribers = new Vector<IObserver>(2);
+	protected List<IObserver> subscribers = new ArrayList<IObserver>(2);
 
 	public void addObserver(IObserver s) {
-		subscribers.addElement(s);
+		subscribers.add(s);
 	}
 
 	public void removeObserver(IObserver s) {
-		subscribers.removeElement(s);
+		subscribers.remove(s);
 	}
 
 	public void removeAllObservers() {
-		subscribers.removeAllElements();
+		subscribers.clear();
 	}
 
 	public void notifyObservers(Event whatHappend) {

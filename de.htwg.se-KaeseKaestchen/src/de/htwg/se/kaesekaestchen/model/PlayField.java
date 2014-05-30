@@ -31,13 +31,13 @@ public class PlayField {
 				if(x == sizeX-1){
 					lines[1] = null;
 				}else{
-					lines[1] = new Line();
+					lines[1] = new Line(new Point(x+1,y), new Point(x+1, y+1));
 				}
 				//handle bottom line
 				if(y == sizeY-1){
 					lines[2] = null;
 				}else{
-					lines[2] = new Line();
+					lines[2] = new Line(new Point(x, y+1), new Point(x+1, y+1));
 				}
 				//handle left line
 				if(x == 0){
@@ -106,36 +106,20 @@ public class PlayField {
 	
 	public boolean isValidLineAllegation(Point from, Point to){
 		//avoid same points
-		if(from.getValX()==to.getValX() && from.getValY()==to.getValY()) {
+		if(from.equals(to)){
 			return false;
 		}
 		//avoid negative coodinates
-		if(from.getValX()<0 || from.getValY()<0) {
-			return false;
-		}
-		if(to.getValX()<0 || to.getValY()<0) {
+		if(from.hasNegativeCoordinates() || to.hasNegativeCoordinates()){
 			return false;
 		}
 		//avoid lines longer than 1
-		if(Math.abs(to.getValX()-from.getValX())>1) {
-			return false;
-		}
-		if(Math.abs(to.getValY()-from.getValY())>1) {
-			return false;
-		}
 		//avoid diagonal lines
-		if(Math.abs(to.getValX()-from.getValX())>=1 && Math.abs(to.getValY()-from.getValY())>=1) {
+		if(from.getDistanceToPoint(to)>1){
 			return false;
 		}
 		int sizeX = theSquares.length;
-		int sizeY = theSquares[0].length;
-		//avoid lines over playfield border
-		if(from.getValX()>sizeX || from.getValY()>sizeY) {
-			return false;
-		}
-		if(to.getValX()>sizeX || to.getValY()>sizeY) {
-			return false;
-		}
+		int sizeY = theSquares[0].length;		
 		//avoid lines on playfield border
 		if(from.getValX()==0 && to.getValX()==0) {
 			return false;
@@ -154,6 +138,33 @@ public class PlayField {
 	
 	public Square[][] getTheSquares(){
 		return this.theSquares;
+	}
+	
+	@Override
+	public String toString() {
+		int fieldSize = 2;
+		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
+		for(int x = 0; x<erg.length; x++){
+			for(int y=0; y<erg[x].length; y++){
+				erg[x][y] = " ";
+			}
+		}
+		erg[0][0] = "+";
+		for(int x=0; x<theSquares.length; x++){
+			for(int y=0; y<theSquares[x].length; y++){
+				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = "+";
+				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = "+";
+				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = "+";
+			}
+		}
+		String resultString = "";
+		for(int x=0; x<erg.length; x++){
+			for(int y=0; y<erg.length; y++){
+				resultString+=erg[x][y];
+			}
+			resultString+="\n";
+		}
+		return resultString;
 	}
 
 }
