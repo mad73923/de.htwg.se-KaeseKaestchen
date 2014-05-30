@@ -56,16 +56,18 @@ public class PlayField {
 		if(!this.isValidLineAllegation(start, end)) {
 			return new NotValidLineAllegationEvent();
 		}
+		Point pStart = start;
+		Point pEnd = end;
 		if(start.getValX()>end.getValX() || start.getValY()>end.getValY()){
-			Point temp = start;
-			start = end;
-			end = temp;
+			Point temp = pStart;
+			pStart = pEnd;
+			pEnd = temp;
 		}
 		boolean lineIshorizontal = false;
-		if(start.getValY() == end.getValY()) {
+		if(pStart.getValY() == pEnd.getValY()) {
 			lineIshorizontal = true;
 		}
-		return this.setLineInSquares(lineIshorizontal, theSquares[start.getValX()][start.getValY()], owner);
+		return this.setLineInSquares(lineIshorizontal, theSquares[pStart.getValX()][pStart.getValY()], owner);
 	}
 	
 	private Event setLineInSquares(boolean lineHorizontal, Square theSquare, Player owner){
