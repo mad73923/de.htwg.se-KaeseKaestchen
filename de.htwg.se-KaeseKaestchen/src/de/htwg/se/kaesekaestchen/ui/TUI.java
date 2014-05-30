@@ -60,8 +60,9 @@ public class TUI extends UI {
 			
 			for(int i = 0; i < playerNames.length; i++) {
 				//Where to get points of players???
-				printString(playerNames[i] + ": x Points\t");
-				if(i == 3) {
+				int[] points = theControl.getPlayerPoints();
+				printString(playerNames[i] + ":\t" + points[i] + " Points\t\t");
+				if(i == 1) {
 					printStringln("");
 				}
 			}
