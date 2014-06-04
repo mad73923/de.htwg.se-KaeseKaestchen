@@ -10,7 +10,6 @@ import de.htwg.se.kaesekaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	
-	@SuppressWarnings("unused")
 	protected KaeseKaestchenControl theControl;
 	
 	
