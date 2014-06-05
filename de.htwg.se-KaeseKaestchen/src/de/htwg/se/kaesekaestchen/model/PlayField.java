@@ -142,65 +142,28 @@ public class PlayField {
 	
 	@Override
 	public String toString() {
-		int fieldSize = 5;
-		int sizeX = theSquares.length;
-		String topLine = "";
-		String bottomLine = "";
-		String middleLines = "";
-		int numberForAlgorithmFieldSize = -3;
-		int numberForAlgorithmSizeX = -16;
-		int[] numberAlgorithmFieldSize = new int[100];
-		int [] numberAlgorithmSizeX = new int[100];
-		for(int i = 2; i < 100; i++){
-			numberForAlgorithmFieldSize = numberForAlgorithmFieldSize + 2;
-			numberAlgorithmFieldSize[i] = numberForAlgorithmFieldSize;
-			numberForAlgorithmSizeX = numberForAlgorithmSizeX + 4;
-			numberAlgorithmSizeX[i] = numberForAlgorithmSizeX;
-		}
-		//TODO: fieldSize größer 10 abfangen
-		
+		int fieldSize = 2;
 		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
 		for(int x = 0; x<erg.length; x++){
 			for(int y=0; y<erg[x].length; y++){
-				erg[x][y] = "";
+				erg[x][y] = " ";
 			}
 		}
+		erg[0][0] = "+";
 		for(int x=0; x<theSquares.length; x++){
-			for(int y=0; y<theSquares[x].length-1; y++){
-			    erg[0][(y+1)*fieldSize] = topLine;
-			    topLine = new String(new char[fieldSize]).replace("\0", "--");
-			    topLine += "b";
-			    erg[(x)*fieldSize][0] = "a";
-			    erg[x*fieldSize][(y+1)*fieldSize] = middleLines;
-			    middleLines = new String(new char[fieldSize]).replace("\0", "  ");
-			    middleLines += "b";		
-			    
-			    erg[(theSquares.length-1)*fieldSize][(y+1)*fieldSize] = bottomLine;
-			    bottomLine = new String(new char[fieldSize]).replace("\0", "--");
-			    bottomLine += "b";
-			    
-
-			
+			for(int y=0; y<theSquares[x].length; y++){
+				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = "+";
+				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = "+";
+				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = "+";
 			}
-			
 		}
-
 		String resultString = "";
-		for(int x=0; x<(erg.length); x++){
+		for(int x=0; x<erg.length; x++){
 			for(int y=0; y<erg.length; y++){
 				resultString+=erg[x][y];
-				
-				}
-			if(x % fieldSize == 0) {
-				resultString+="\n";
-			} else {
-				resultString+="|\n";
 			}
-			
-			if(x == theSquares.length + (2*fieldSize + numberAlgorithmFieldSize[fieldSize] + numberAlgorithmSizeX[sizeX])){
-				break;
-			}
-		}	
+			resultString+="\n";
+		}
 		return resultString;
 	}
 
