@@ -3,9 +3,7 @@ package de.htwg.se.kaesekaestchen.ui;
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class TUI extends UI {
@@ -13,7 +11,6 @@ public class TUI extends UI {
 	private Color[] colors= {Color.black, Color.blue, Color.green, Color.magenta, Color.orange, Color.red, Color.yellow};
 	private int sizeX = 0;
 	private int sizeY = 0;
-	private String[] args;
 	
 	public TUI(KaeseKaestchenControl pTheControl){
 		super(pTheControl);
@@ -59,7 +56,7 @@ public class TUI extends UI {
 			
 			 
 			theControl.startNewGame(playerNames, colors, sizeX+1, sizeY+1);
-
+			theControl.getStatusMessage();
 			nextMove(playerNames);
 				
 			
@@ -81,24 +78,20 @@ public class TUI extends UI {
 			if((i % 2) == 0) {
 				printStringln("");
 			}
+		
+	
     	}
-        List l = new ArrayList();
-        printStringln("Please give 2 Coordinates for your line (startx starty endx endy");
-        List<Integer> list = new ArrayList<Integer>();
-        Scanner sc = in.useDelimiter(" ");
+        
         int [] coordinates = new int[4];
-        while (sc.hasNextInt()) {
-            list.add(sc.nextInt());
+        printStringln("\nPlease give 2 Coordinates for your line (startx starty endx endy)");
+        
+        for ( int i = 0; i < coordinates.length; i++) {
+            int j = in.nextInt();
+            coordinates[i] = j;
         }
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-            coordinates[i] = list.get(i);
-        }
-        for (int i = 0; i < coordinates.length; i++) {
-            System.out.println(coordinates[i]);
-        }
-        //theControl.newMove(1, 2, 1, 1);
-        //showMessage();
+        printStringln(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+        
+        theControl.newMove(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
 	    
 	}
 
