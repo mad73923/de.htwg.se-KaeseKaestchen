@@ -143,18 +143,45 @@ public class PlayField {
 	@Override
 	public String toString() {
 		int fieldSize = 2;
-		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
+		Character erg[][] = new Character[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
 		for(int x = 0; x<erg.length; x++){
 			for(int y=0; y<erg[x].length; y++){
-				erg[x][y] = " ";
+				erg[x][y] = ' ';
 			}
 		}
-		erg[0][0] = "+";
+		erg[0][0] = '+';
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length; y++){
-				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = "+";
-				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = "+";
-				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = "+";
+				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = '+';
+				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = '+';
+				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = '+';
+				
+//				Line theLine = theSquares[x][y].getLines()[1];
+//				if(theLine == null || !theLine.isOwnerNotSet()){
+					for(int i = 0; i<fieldSize; i++){
+						erg[x*fieldSize+i+1+x][(y*fieldSize)+fieldSize+1+y] = '|';
+					}
+//				}
+				
+//				theLine = theSquares[x][y].getLines()[2];
+//				if(theLine == null || !theLine.isOwnerNotSet()){
+					for(int i=0; i<fieldSize; i++){
+							erg[x*fieldSize+fieldSize+1+x][(y*fieldSize+i+1)+y]= '-';
+//					}
+				}
+				
+				if(x==0){
+					for(int i=0; i<fieldSize; i++){
+						erg[x*fieldSize+x][(y*fieldSize+i+1)+y]= '-';
+					}
+				}
+				
+				if(y==0){
+					for(int i=0; i<fieldSize; i++){
+						erg[x*fieldSize+i+1+x][(y*fieldSize)+y] = '|';
+					}
+				}
+				
 			}
 		}
 		String resultString = "";
