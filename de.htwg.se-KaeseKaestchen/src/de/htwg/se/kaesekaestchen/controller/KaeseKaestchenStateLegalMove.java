@@ -14,9 +14,7 @@ public class KaeseKaestchenStateLegalMove extends KaeseKaestchenState {
 			theControl.pickNextPlayerAsCurrentPlayer();
 			theControl.setStatusMessage("\n" + theControl.getCurrentPlayerName()+" ist an der Reihe.");
 			theControl.notifyObservers(new UpdateUIEvent());
-			theControl.notifyObservers(new MessageUIEvent());
-			
-			//--> prints new playfield, why?                                                         
+			theControl.notifyObservers(new MessageUIEvent());                                              
 		}
 	}
 

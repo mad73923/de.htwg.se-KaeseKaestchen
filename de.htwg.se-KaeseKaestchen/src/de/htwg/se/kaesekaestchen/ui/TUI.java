@@ -24,42 +24,11 @@ public class TUI extends UI {
 
 	@Override
 	public void showWelcomeMessage() {
-
 		try {
-			//TODO collect new game data
 			printStringln("Welcome to KaeseKaestchen!\n(c) Matthias Weis & Joey Rieg\nHTWG Konstanz SS 2014\n\n");
-			printString("Enter number of Players (max. " + colors.length + " Players):\n");
 			
-			int numberOfPlayers = in.nextInt();
-			String playerNames[] = new String[numberOfPlayers];
-			
-			
-			for(int i = 0; i < numberOfPlayers; i++){
-				printString("Name of Player" + (i+1) + "\n");
-				playerNames[i] = in.next();
-			}
-			
-			
-			printStringln("\nEnter size of playfield:");
-			printString("x: ");
-			sizeX = in.nextInt();
-			printString("Y: ");
-			sizeY = in.nextInt();
-			if(sizeX <= 2 || sizeY <= 2){
-				// throw Exception
-			}
-					
-			printStringln("Playfield size is x: " + sizeX + "\t" + 
-							  				"y: " + sizeY + "\n");
-			printStringln("Let's play!");
-			
-			
-			 
-			theControl.startNewGame(playerNames, colors, sizeX+1, sizeY+1);
-			theControl.getStatusMessage();
-			nextMove(playerNames);
-				
-			
+			getNumberOfPlayersAndNames();
+
 		} catch (Exception e) {
 			if (e instanceof InputMismatchException) {
 				printStringln("Please type a number!");
@@ -68,6 +37,45 @@ public class TUI extends UI {
 			
 		}
 
+	}
+	
+	protected void getNumberOfPlayersAndNames() {
+	    printString("Enter number of Players (max. " + colors.length + " Players):\n");
+        
+        int numberOfPlayers = in.nextInt();
+        String playerNames[] = new String[numberOfPlayers];
+        
+        
+        for(int i = 0; i < numberOfPlayers; i++){
+            printString("Name of Player" + (i+1) + "\n");
+            playerNames[i] = in.next();
+        }
+        
+        getPlayfieldDataAndStartGame(playerNames);
+	    
+	}
+	
+	protected void getPlayfieldDataAndStartGame(String[] playerNames) {
+	    printStringln("\nEnter size of playfield:");
+        printString("x: ");
+        sizeX = in.nextInt();
+        printString("Y: ");
+        sizeY = in.nextInt();
+        if(sizeX <= 2 || sizeY <= 2){
+            // throw Exception
+        }
+                
+        printStringln("Playfield size is x: " + sizeX + "\t" + 
+                                        "y: " + sizeY + "\n");
+        printStringln("Let's play!");
+        
+        
+         
+        theControl.startNewGame(playerNames, colors, sizeX+1, sizeY+1);
+        printStringln(theControl.getCurrentPlayerName() + ", it's your turn!");
+        //theControl.getStatusMessage();
+        nextMove(playerNames);
+	    
 	}
 	
 	protected void nextMove(String[] playerNames) {
@@ -82,6 +90,8 @@ public class TUI extends UI {
 	
     	}
         
+        
+        
         int [] coordinates = new int[4];
         printStringln("\nPlease give 2 Coordinates for your line (startx starty endx endy)");
         
@@ -92,6 +102,7 @@ public class TUI extends UI {
         printStringln(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
         
         theControl.newMove(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
+        nextMove(playerNames);
 	    
 	}
 

@@ -53,7 +53,7 @@ public class KaeseKaestchenControl extends Observable{
 	}
 	
 	public void pickNextPlayerAsCurrentPlayer(){
-		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length-1);
+		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length);
 	}
 	
 	public String getCurrentPlayerName(){
