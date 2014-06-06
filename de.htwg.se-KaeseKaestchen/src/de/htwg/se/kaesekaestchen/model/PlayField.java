@@ -156,18 +156,18 @@ public class PlayField {
 				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = '+';
 				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = '+';
 				
-//				Line theLine = theSquares[x][y].getLines()[1];
-//				if(theLine == null || !theLine.isOwnerNotSet()){
+				Line theLine = theSquares[x][y].getLines()[1];
+				if(theLine == null || !theLine.isOwnerNotSet()){
 					for(int i = 0; i<fieldSize; i++){
 						erg[x*fieldSize+i+1+x][(y*fieldSize)+fieldSize+1+y] = '|';
 					}
-//				}
+				}
 				
-//				theLine = theSquares[x][y].getLines()[2];
-//				if(theLine == null || !theLine.isOwnerNotSet()){
+				theLine = theSquares[x][y].getLines()[2];
+				if(theLine == null || !theLine.isOwnerNotSet()){
 					for(int i=0; i<fieldSize; i++){
 							erg[x*fieldSize+fieldSize+1+x][(y*fieldSize+i+1)+y]= '-';
-//					}
+					}
 				}
 				
 				if(x==0){
