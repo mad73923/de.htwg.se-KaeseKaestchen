@@ -16,36 +16,36 @@ public class PlayField {
 	}
 
 
-	private void createNewField(int sizeX, int sizeY) {
+	private void createNewField(int columnsX, int rowsY) {
 		//TODO minimum size: 2x2
-		for(int x=0; x<sizeX; x++){
-			for(int y=0; y<sizeY; y++){
+		for(int column=0; column<columnsX; column++){
+			for(int row=0; row<rowsY; row++){
 				Line[] lines = new Line[4];
 				// handle top line
-				if(y == 0){
+				if(row == 0){
 					lines[0] = null;
 				}else{
-					lines[0] = theSquares[x][y-1].getLines()[Square.BOTTOMLINEINDEX];
+					lines[0] = theSquares[column][row-1].getLines()[Square.BOTTOMLINEINDEX];
 				}
 				//handle right line
-				if(x == sizeX-1){
+				if(column == columnsX-1){
 					lines[1] = null;
 				}else{
-					lines[1] = new Line(new Point(x+1,y), new Point(x+1, y+1));
+					lines[1] = new Line(new Point(column+1,row), new Point(column+1, row+1));
 				}
 				//handle bottom line
-				if(y == sizeY-1){
+				if(row == rowsY-1){
 					lines[2] = null;
 				}else{
-					lines[2] = new Line(new Point(x, y+1), new Point(x+1, y+1));
+					lines[2] = new Line(new Point(column, row+1), new Point(column+1, row+1));
 				}
 				//handle left line
-				if(x == 0){
+				if(column == 0){
 					lines[3] = null;
 				}else {
-					lines[3] = theSquares[x-1][y].getLines()[Square.RIGHTLINEINDEX];
+					lines[3] = theSquares[column-1][row].getLines()[Square.RIGHTLINEINDEX];
 				}
-				theSquares[x][y] = new Square(lines);
+				theSquares[column][row] = new Square(lines);
 			}
 		}
 		
@@ -150,35 +150,35 @@ public class PlayField {
 			}
 		}
 		erg[0][0] = '+';
-		for(int x=0; x<theSquares.length; x++){
-			for(int y=0; y<theSquares[x].length; y++){
-				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = '+';
-				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = '+';
-				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = '+';
+		for(int column=0; column<theSquares.length; column++){
+			for(int row=0; row<theSquares[column].length; row++){
+				erg[(column+1)*fieldSize+column+1][(row+1)*fieldSize+row+1] = '+';
+				erg[(column+1)*fieldSize+column+1][row*fieldSize+row] = '+';
+				erg[column*fieldSize+column][(row+1)*fieldSize+row+1] = '+';
 				
-				Line theLine = theSquares[x][y].getLines()[1];
+				Line theLine = theSquares[column][row].getLines()[2];
 				if(theLine == null || !theLine.isOwnerNotSet()){
 					for(int i = 0; i<fieldSize; i++){
-						erg[x*fieldSize+i+1+x][(y*fieldSize)+fieldSize+1+y] = '|';
+						erg[column*fieldSize+i+1+column][(row*fieldSize)+fieldSize+1+row] = '|';
 					}
 				}
 				
-				theLine = theSquares[x][y].getLines()[2];
+				theLine = theSquares[column][row].getLines()[1];
 				if(theLine == null || !theLine.isOwnerNotSet()){
 					for(int i=0; i<fieldSize; i++){
-							erg[x*fieldSize+fieldSize+1+x][(y*fieldSize+i+1)+y]= '-';
+							erg[column*fieldSize+fieldSize+1+column][(row*fieldSize+i+1)+row]= '-';
 					}
 				}
 				
-				if(x==0){
+				if(column==0){
 					for(int i=0; i<fieldSize; i++){
-						erg[x*fieldSize+x][(y*fieldSize+i+1)+y]= '-';
+						erg[column*fieldSize+column][(row*fieldSize+i+1)+row]= '-';
 					}
 				}
 				
-				if(y==0){
+				if(row==0){
 					for(int i=0; i<fieldSize; i++){
-						erg[x*fieldSize+i+1+x][(y*fieldSize)+y] = '|';
+						erg[column*fieldSize+i+1+column][(row*fieldSize)+row] = '|';
 					}
 				}
 				
