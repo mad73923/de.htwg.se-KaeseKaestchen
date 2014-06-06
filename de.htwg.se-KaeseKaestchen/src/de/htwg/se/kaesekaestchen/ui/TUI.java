@@ -72,7 +72,8 @@ public class TUI extends UI {
         
          
         theControl.startNewGame(playerNames, colors, sizeX+1, sizeY+1);
-        theControl.getStatusMessage();
+        printStringln(theControl.getCurrentPlayerName() + ", it's your turn!");
+        //theControl.getStatusMessage();
         nextMove(playerNames);
 	    
 	}
@@ -89,6 +90,8 @@ public class TUI extends UI {
 	
     	}
         
+        
+        
         int [] coordinates = new int[4];
         printStringln("\nPlease give 2 Coordinates for your line (startx starty endx endy)");
         
@@ -99,6 +102,7 @@ public class TUI extends UI {
         printStringln(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
         
         theControl.newMove(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
+        nextMove(playerNames);
 	    
 	}
 
