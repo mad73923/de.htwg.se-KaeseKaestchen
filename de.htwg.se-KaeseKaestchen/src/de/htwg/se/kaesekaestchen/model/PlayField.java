@@ -142,7 +142,7 @@ public class PlayField {
 	
 	@Override
 	public String toString() {
-		int fieldSize = 2;
+		int fieldSize = 3;
 		Character erg[][] = new Character[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
 		for(int x = 0; x<erg.length; x++){
 			for(int y=0; y<erg[x].length; y++){
@@ -182,15 +182,32 @@ public class PlayField {
 					}
 				}
 				
+				
 			}
 		}
 		String resultString = "";
+		int rowNumber = 0;
 		for(int x=0; x<erg.length; x++){
-			for(int y=0; y<erg.length; y++){
+			for(int y=0; y<erg[x].length; y++){
 				resultString+=erg[x][y];
+			}
+			if(x%(fieldSize+1)==0){
+				resultString+=rowNumber;
+				rowNumber++;
 			}
 			resultString+="\n";
 		}
+		int columnNumber = 0;
+		for(int y = 0; y<erg[0].length; y++){
+			if(y%(fieldSize+1)==0){
+				resultString+=columnNumber;
+				columnNumber++;
+				for(int i = 0; i<fieldSize; i++){
+					resultString+=" ";
+				}
+			}
+		}
+		resultString+="\n";
 		return resultString;
 	}
 
