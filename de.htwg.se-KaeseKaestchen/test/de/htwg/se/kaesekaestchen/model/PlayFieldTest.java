@@ -14,14 +14,13 @@ import org.junit.Test;
 import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
 import de.htwg.se.kaesekaestchen.event.NotValidLineAllegationEvent;
 import de.htwg.se.kaesekaestchen.event.OKEvent;
-import de.htwg.se.kaesekaestchen.model.Line;
 import de.htwg.se.kaesekaestchen.model.PlayField;
 import de.htwg.se.kaesekaestchen.model.Player;
 import de.htwg.se.kaesekaestchen.model.Point;
 
 public class PlayFieldTest {
     
-    PlayField thePlayField;
+    IPlayField thePlayField;
     
     private static int SIZEX = 5;
     private static int SIZEY = 5;
@@ -33,7 +32,7 @@ public class PlayFieldTest {
     
     @Test
     public void testCreateNewField(){
-    	Line[] theLines;
+    	ILine[] theLines;
     	for(int x = 0; x<SIZEX; x++){
     		for(int y = 0; y<SIZEY; y++){
     			theLines = thePlayField.getTheSquares()[x][y].getLines();
@@ -108,7 +107,7 @@ public class PlayFieldTest {
     public void testAreThereEmptyLines(){
     	assertTrue(thePlayField.areThereEmptyLines());
     	thePlayField = new PlayField(2, 2);
-    	Player peter = new Player("Tester", Color.black);
+    	IPlayer peter = new Player("Tester", Color.black);
     	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));
     	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(0, 1), new Point(1, 1), peter));
     	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1, 2), new Point(1, 1), peter));
@@ -119,7 +118,7 @@ public class PlayFieldTest {
     
     @Test
     public void testCheckForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(){
-    	Player peter = new Player("Tester", Color.black);
+    	IPlayer peter = new Player("Tester", Color.black);
     	assertSame(0, peter.getPoints());
     	assertFalse(thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(peter));
     	assertEquals(new OKEvent(), thePlayField.setLineFromToPointWithPlayer(new Point(1, 0), new Point(1, 1), peter));

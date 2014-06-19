@@ -4,6 +4,9 @@ import java.awt.Color;
 
 import de.htwg.se.kaesekaestchen.event.UpdateUIEvent;
 import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
+import de.htwg.se.kaesekaestchen.model.IPlayField;
+import de.htwg.se.kaesekaestchen.model.IPlayer;
+import de.htwg.se.kaesekaestchen.model.IPoint;
 import de.htwg.se.kaesekaestchen.model.PlayField;
 import de.htwg.se.kaesekaestchen.model.Player;
 import de.htwg.se.kaesekaestchen.model.Point;
@@ -15,10 +18,10 @@ public class KaeseKaestchenControl extends Observable{
 	 * @param args
 	 */
 	
-	private Player[] thePlayer;
+	private IPlayer[] thePlayer;
 	private int currentPlayerIndex;
 	
-	private PlayField thePlayField;
+	private IPlayField thePlayField;
 	private KaeseKaestchenState currentState;
 	private String warningMessage;
 	private String statusMessage;
@@ -31,7 +34,7 @@ public class KaeseKaestchenControl extends Observable{
 	
 	public void startNewGame(String[] playerNames, Color[] playerColors, int sizeX, int sizeY){
 		//TODO fetch if playerNames.length != playerColors.length
-		thePlayer = new Player[playerNames.length];
+		thePlayer = new IPlayer[playerNames.length];
 		for(int i=0; i<playerNames.length; i++){
 			thePlayer[i] = new Player(playerNames[i], playerColors[i]);
 		}
@@ -41,7 +44,7 @@ public class KaeseKaestchenControl extends Observable{
 	}
 	
 	public void newMove(int startX, int startY, int endX, int endY){
-		Point start = new Point(startX, startY);
+		IPoint start = new Point(startX, startY);
 		Point end = new Point(endX, endY);
 		currentState = new KaeseKaestchenStateMove(this);
 		currentState.nextState(thePlayField.setLineFromToPointWithPlayer(start, end, thePlayer[currentPlayerIndex]));
@@ -88,11 +91,11 @@ public class KaeseKaestchenControl extends Observable{
 		return statusMessage;
 	}
 
-	public PlayField getPlayField(){
+	public IPlayField getPlayField(){
 		return thePlayField;
 	}
 	
-	public Player getCurrentPlayer(){
+	public IPlayer getCurrentPlayer(){
 		try {
 			return thePlayer[currentPlayerIndex];
 		} catch (Exception e) {
