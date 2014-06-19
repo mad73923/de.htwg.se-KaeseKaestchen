@@ -73,7 +73,8 @@ public class TUI extends UI {
          
         theControl.startNewGame(playerNames, colors, sizeX+1, sizeY+1);
         printStringln(theControl.getCurrentPlayerName() + ", it's your turn!");
-        //theControl.getStatusMessage();
+        theControl.getStatusMessage();
+        theControl.getWarningMessage();
         nextMove(playerNames);
 	    
 	}
@@ -94,7 +95,8 @@ public class TUI extends UI {
         
         int [] coordinates = new int[4];
         printStringln("\nPlease give 2 Coordinates for your line (startx starty endx endy)");
-        
+        // TODO: switch x and y in controller!!!
+        // TODO: not all error line are catched! e.g 5 3 5 4 with a 4 x 4 playfield!
         for ( int i = 0; i < coordinates.length; i++) {
             int j = in.nextInt();
             coordinates[i] = j;
@@ -113,7 +115,7 @@ public class TUI extends UI {
 
 	@Override
 	protected void showWarning() {
-		// TODO Auto-generated method stub	
+		printStringln(theControl.getWarningMessage());
 	}
 
 	private void printStringln(String s) {
