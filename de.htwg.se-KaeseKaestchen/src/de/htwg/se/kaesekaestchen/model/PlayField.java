@@ -5,13 +5,13 @@ import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
 import de.htwg.se.kaesekaestchen.event.NotValidLineAllegationEvent;
 import de.htwg.se.kaesekaestchen.event.OKEvent;
 
-public class PlayField {
+public class PlayField implements IPlayField {
 	
-	private Square[][] theSquares;
+	private ISquare[][] theSquares;
 	
 	
 	public PlayField(int sizeX, int sizeY) {
-		theSquares = new Square[sizeX][sizeY];
+		theSquares = new ISquare[sizeX][sizeY];
 		createNewField(sizeX, sizeY);
 	}
 
@@ -20,12 +20,12 @@ public class PlayField {
 		//TODO minimum size: 2x2
 		for(int x=0; x<sizeX; x++){
 			for(int y=0; y<sizeY; y++){
-				Line[] lines = new Line[4];
+				ILine[] lines = new ILine[4];
 				// handle top line
 				if(y == 0){
 					lines[0] = null;
 				}else{
-					lines[0] = theSquares[x][y-1].getLines()[Square.BOTTOMLINEINDEX];
+					lines[0] = theSquares[x][y-1].getLines()[ISquare.BOTTOMLINEINDEX];
 				}
 				//handle right line
 				if(x == sizeX-1){
@@ -43,7 +43,7 @@ public class PlayField {
 				if(x == 0){
 					lines[3] = null;
 				}else {
-					lines[3] = theSquares[x-1][y].getLines()[Square.RIGHTLINEINDEX];
+					lines[3] = theSquares[x-1][y].getLines()[ISquare.RIGHTLINEINDEX];
 				}
 				theSquares[x][y] = new Square(lines);
 			}
@@ -52,26 +52,32 @@ public class PlayField {
 	}
 	
 	
-	public Event setLineFromToPointWithPlayer(Point start, Point end, Player owner){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.IPlayField#setLineFromToPointWithPlayer(de.htwg.se.kaesekaestchen.model.Point, de.htwg.se.kaesekaestchen.model.Point, de.htwg.se.kaesekaestchen.model.IPlayer)
+	 */
+	@Override
+	public Event setLineFromToPointWithPlayer(IPoint start, Point end, IPlayer owner){
 		if(!this.isValidLineAllegation(start, end)) {
 			return new NotValidLineAllegationEvent();
 		}
+		IPoint pStart = start;
+		IPoint pEnd = end;
 		if(start.getValX()>end.getValX() || start.getValY()>end.getValY()){
-			Point temp = start;
-			start = end;
-			end = temp;
+			IPoint temp = pStart;
+			pStart = pEnd;
+			pEnd = temp;
 		}
 		boolean lineIshorizontal = false;
-		if(start.getValY() == end.getValY()) {
+		if(pStart.getValY() == pEnd.getValY()) {
 			lineIshorizontal = true;
 		}
-		return this.setLineInSquares(lineIshorizontal, theSquares[start.getValX()][start.getValY()], owner);
+		return this.setLineInSquares(lineIshorizontal, theSquares[pStart.getValX()][pStart.getValY()], owner);
 	}
 	
-	private Event setLineInSquares(boolean lineHorizontal, Square theSquare, Player owner){
-		int lineIndex = Square.TOPLINEINDEX;
+	private Event setLineInSquares(boolean lineHorizontal, ISquare theSquare, IPlayer owner){
+		int lineIndex = ISquare.TOPLINEINDEX;
 		if(!lineHorizontal){
-			lineIndex = Square.LEFTLINEINDEX;
+			lineIndex = ISquare.LEFTLINEINDEX;
 		}
 		if(theSquare.getLines()[lineIndex].setOwner(owner)){
 			return new OKEvent();
@@ -79,7 +85,11 @@ public class PlayField {
 		return new LineAlreadySetEvent();
 	}
 	
-	public boolean checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(Player currentPlayer){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.IPlayField#checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(de.htwg.se.kaesekaestchen.model.IPlayer)
+	 */
+	@Override
+	public boolean checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(IPlayer currentPlayer){
 		boolean newSquareMarked = false;
 		for(int x =0; x<theSquares.length; x++){
 			for(int y = 0; y<theSquares[x].length; y++){
@@ -93,6 +103,10 @@ public class PlayField {
 		return newSquareMarked;
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.IPlayField#areThereEmptyLines()
+	 */
+	@Override
 	public boolean areThereEmptyLines(){
 		for(int x=0; x<theSquares.length; x++){
 			for(int y=0; y<theSquares[x].length; y++){
@@ -104,7 +118,11 @@ public class PlayField {
 		return false;
 	}
 	
-	public boolean isValidLineAllegation(Point from, Point to){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.IPlayField#isValidLineAllegation(de.htwg.se.kaesekaestchen.model.Point, de.htwg.se.kaesekaestchen.model.Point)
+	 */
+	@Override
+	public boolean isValidLineAllegation(IPoint from, Point to){
 		//avoid same points
 		if(from.equals(to)){
 			return false;
@@ -136,10 +154,17 @@ public class PlayField {
 		return true;
 	}
 	
-	public Square[][] getTheSquares(){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.IPlayField#getTheSquares()
+	 */
+	@Override
+	public ISquare[][] getTheSquares(){
 		return this.theSquares;
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.IPlayField#toString()
+	 */
 	@Override
 	public String toString() {
 		int fieldSize = 2;

@@ -1,25 +1,24 @@
 package de.htwg.se.kaesekaestchen.model;
 
 
-public class Square {
+public class Square implements ISquare {
 	
-	private Player owner;
-	private Line[] theLines;
+	private IPlayer owner;
+	private ILine[] theLines;
 	
-	public static final int TOPLINEINDEX = 0;
-	public static final int RIGHTLINEINDEX = 1;
-	public static final int BOTTOMLINEINDEX = 2;
-	public static final int LEFTLINEINDEX = 3;
-	
-	public Square(Line[] linesAtTopRightBottomLeft) {
+	public Square(ILine[] linesAtTopRightBottomLeft) {
 		//TODO abfangen wenn linesAtTopRightBottomLeft.length != 4!!
-		theLines = new Line[linesAtTopRightBottomLeft.length];
+		theLines = new ILine[linesAtTopRightBottomLeft.length];
 		System.arraycopy(linesAtTopRightBottomLeft, 0, theLines, 0, linesAtTopRightBottomLeft.length);
 		
 		owner = null;
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.ISquare#allLinesHaveOwners()
+	 */
+	@Override
 	public boolean allLinesHaveOwners(){
 		for(int i =0; i<theLines.length; i++) {
 			if(theLines[i]!=null && theLines[i].getOwner() == null) {
@@ -29,7 +28,11 @@ public class Square {
 		return true;
 	}
 	
-	public boolean setOwner(Player newOwner){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.ISquare#setOwner(de.htwg.se.kaesekaestchen.model.IPlayer)
+	 */
+	@Override
+	public boolean setOwner(IPlayer newOwner){
 		if(owner == null){
 			owner = newOwner;
 			return true;
@@ -37,11 +40,19 @@ public class Square {
 		return false;
 	}
 	
-	public Player getOwner(){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.ISquare#getOwner()
+	 */
+	@Override
+	public IPlayer getOwner(){
 		return owner;
 	}
 	
-	public Line[] getLines(){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.model.ISquare#getLines()
+	 */
+	@Override
+	public ILine[] getLines(){
 		return theLines;
 	}
 

@@ -9,7 +9,7 @@ import de.htwg.se.kaesekaestchen.model.Point;
 
 public class PointTest {
 	
-	Point thePoint;
+	IPoint thePoint;
 
 	@Before
 	public void setUp() throws Exception {

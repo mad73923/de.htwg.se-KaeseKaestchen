@@ -11,7 +11,7 @@ import org.junit.Test;
 import de.htwg.se.kaesekaestchen.model.Player;
 
 public class PlayerTest {
-	Player thePlayer;
+	IPlayer thePlayer;
 
 	@Before
 	public void setUp() throws Exception {
