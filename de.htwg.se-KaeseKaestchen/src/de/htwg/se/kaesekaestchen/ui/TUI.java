@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class TUI extends UI {
 	private Scanner in = new Scanner(System.in);
 	private Color[] colors= {Color.black, Color.blue, Color.green, Color.magenta, Color.orange, Color.red, Color.yellow};
-	private int sizeX = 0;
-	private int sizeY = 0;
 	
 	public TUI(KaeseKaestchenControl pTheControl){
 		super(pTheControl);
@@ -56,6 +54,8 @@ public class TUI extends UI {
 	}
 	
 	protected void getPlayfieldDataAndStartGame(String[] playerNames) {
+	    int sizeX = 0;
+	    int sizeY = 0;
 	    printStringln("\nEnter size of playfield:");
         printString("x: ");
         sizeX = in.nextInt();
@@ -97,6 +97,7 @@ public class TUI extends UI {
         printStringln("\nPlease give 2 Coordinates for your line (startx starty endx endy)");
         // TODO: switch x and y in controller!!!
         // TODO: not all error line are catched! e.g 5 3 5 4 with a 4 x 4 playfield!
+        // TODO: from TUI to GUI playfield?
         for ( int i = 0; i < coordinates.length; i++) {
             int j = in.nextInt();
             coordinates[i] = j;
