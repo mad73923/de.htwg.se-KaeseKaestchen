@@ -72,7 +72,7 @@ public class KaeseKaestchenControl extends Observable implements IKaeseKaestchen
 	 */
 	@Override
 	public void pickNextPlayerAsCurrentPlayer(){
-		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length-1);
+		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length);
 	}
 	
 	/* (non-Javadoc)
@@ -139,6 +139,19 @@ public class KaeseKaestchenControl extends Observable implements IKaeseKaestchen
 		return thePlayField;
 	}
 	
+
+	public String getPlayFieldString(){
+		return thePlayField.toString();
+	}
+	
+	public int[] getPlayerPoints() {
+		int[] playerPoints = new int[thePlayer.length];
+		for (int i = 0; i < thePlayer.length; i++) {
+			playerPoints[i] = thePlayer[i].getPoints();
+		}
+		return playerPoints;
+		
+	}
 	/* (non-Javadoc)
 	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#getCurrentPlayer()
 	 */

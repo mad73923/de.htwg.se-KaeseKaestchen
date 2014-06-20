@@ -30,6 +30,12 @@ public interface IKaeseKaestchenControl {
 
 	 abstract IPlayField getPlayField();
 
+
 	 abstract IPlayer getCurrentPlayer();
+	
+	 abstract String getPlayFieldString();
+	
+	 abstract int[] getPlayerPoints();
+
 
 }

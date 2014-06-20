@@ -13,7 +13,9 @@ public class KaeseKaestchenStart {
 	}
 	public static void main(String[] args) {
 		KaeseKaestchenControl control = new KaeseKaestchenControl();
-		new TUI(control);
+		TUI tui = new TUI(control);
+		tui.outPrint();
+		
 	}
 
 }

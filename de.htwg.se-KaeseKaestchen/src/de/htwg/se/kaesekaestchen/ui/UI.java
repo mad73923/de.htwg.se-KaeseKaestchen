@@ -11,8 +11,10 @@ import de.htwg.se.kaesekaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	
+
 	@SuppressWarnings("unused")
-	private IKaeseKaestchenControl theControl;
+	protected IKaeseKaestchenControl theControl;
+
 	
 	
 	public	UI(KaeseKaestchenControl pTheControl){	

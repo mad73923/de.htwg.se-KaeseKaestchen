@@ -3,11 +3,13 @@ package de.htwg.se.kaesekaestchen.controller;
 import static org.junit.Assert.*;
 
 import java.awt.Color;
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.kaesekaestchen.model.Player;
 import de.htwg.se.kaesekaestchen.ui.TUI;
 
 public class KaeseKaestchenControlTest {
@@ -44,12 +46,19 @@ public class KaeseKaestchenControlTest {
     	theControl.startNewGame(new String[] {"Peter", "Paul"}, new Color[] {Color.black,  Color.blue}, 2,2);
     	theControl.getCurrentPlayer();
     	theControl.newMove(1, 0, 1, 1);
-    	assertEquals(theControl.getCurrentPlayer().getName()+" ist an der Reihe.", theControl.getStatusMessage());
+    	assertEquals("\n" + theControl.getCurrentPlayer().getName()+", it's your turn.", theControl.getStatusMessage());
     	theControl.newMove(0, 1, 1, 1);
     	theControl.newMove(0, 1, 1, 1);
-    	assertEquals("Diese Linie wurde bereits gezeichnet!", theControl.getWarningMessage());
+    	assertEquals("This line is already set!", theControl.getWarningMessage());
     	theControl.newMove(0, 0, 1, 1);
-    	assertEquals("Keine gueltige Linie eingegeben.", theControl.getWarningMessage());
+    	assertEquals("No valid line given!", theControl.getWarningMessage());
+    }
+    
+    @Test
+    public void testGetPlayerpoints() {
+    	theControl.startNewGame(new String[] {"Peter", "Paul"}, new Color[] {Color.black,  Color.blue}, 2,2);
+    	int[] playerPointsTest = {0, 0};
+    	assertArrayEquals(playerPointsTest, theControl.getPlayerPoints());
     }
 
 }

@@ -7,7 +7,7 @@ public class KaeseKaestchenStateNoValidInput extends KaeseKaestchenState {
 
 	public KaeseKaestchenStateNoValidInput(KaeseKaestchenControl pTheControl) {
 		super(pTheControl);
-		theControl.setWarningMessage("Keine gueltige Linie eingegeben.");
+		theControl.setWarningMessage("No valid line given!");
 		theControl.notifyObservers(new WarningUIEvent());
 	}
 

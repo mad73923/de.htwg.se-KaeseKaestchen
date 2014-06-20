@@ -16,36 +16,40 @@ public class PlayField implements IPlayField {
 	}
 
 
-	private void createNewField(int sizeX, int sizeY) {
+	private void createNewField(int columnsX, int rowsY) {
 		//TODO minimum size: 2x2
-		for(int x=0; x<sizeX; x++){
-			for(int y=0; y<sizeY; y++){
-				ILine[] lines = new ILine[ISquare.NUMBEROFLINES];
+
+
+		for(int column=0; column<columnsX; column++){
+			for(int row=0; row<rowsY; row++){
+				ILine[] lines = new ILine[4];
+
 				// handle top line
-				if(y == 0){
-					lines[ISquare.TOPLINEINDEX] = null;
+				if(row == 0){
+					lines[0] = null;
 				}else{
-					lines[ISquare.TOPLINEINDEX] = theSquares[x][y-1].getLines()[ISquare.BOTTOMLINEINDEX];
+					lines[0] = theSquares[column][row-1].getLines()[ISquare.BOTTOMLINEINDEX];
 				}
 				//handle right line
-				if(x == sizeX-1){
-					lines[ISquare.RIGHTLINEINDEX] = null;
+				if(column == columnsX-1){
+					lines[1] = null;
 				}else{
-					lines[ISquare.RIGHTLINEINDEX] = new Line(new Point(x+1,y), new Point(x+1, y+1));
+					lines[1] = new Line(new Point(column+1,row), new Point(column+1, row+1));
 				}
 				//handle bottom line
-				if(y == sizeY-1){
-					lines[ISquare.BOTTOMLINEINDEX] = null;
+				if(row == rowsY-1){
+					lines[2] = null;
 				}else{
-					lines[ISquare.BOTTOMLINEINDEX] = new Line(new Point(x, y+1), new Point(x+1, y+1));
+					lines[2] = new Line(new Point(column, row+1), new Point(column+1, row+1));
 				}
 				//handle left line
-				if(x == 0){
-					lines[ISquare.LEFTLINEINDEX] = null;
+				if(column == 0){
+					lines[3] = null;
 				}else {
-					lines[ISquare.LEFTLINEINDEX] = theSquares[x-1][y].getLines()[ISquare.RIGHTLINEINDEX];
+					lines[3] = theSquares[column-1][row].getLines()[ISquare.RIGHTLINEINDEX];
+
 				}
-				theSquares[x][y] = new Square(lines);
+				theSquares[column][row] = new Square(lines);
 			}
 		}
 		
@@ -167,28 +171,72 @@ public class PlayField implements IPlayField {
 	 */
 	@Override
 	public String toString() {
-		int fieldSize = 2;
-		String erg[][] = new String[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
+		int fieldSize = 3;
+		Character erg[][] = new Character[fieldSize*theSquares.length+theSquares.length+1][fieldSize*theSquares[0].length+theSquares.length+1];
 		for(int x = 0; x<erg.length; x++){
 			for(int y=0; y<erg[x].length; y++){
-				erg[x][y] = " ";
+				erg[x][y] = ' ';
 			}
 		}
-		erg[0][0] = "+";
-		for(int x=0; x<theSquares.length; x++){
-			for(int y=0; y<theSquares[x].length; y++){
-				erg[(x+1)*fieldSize+x+1][(y+1)*fieldSize+y+1] = "+";
-				erg[(x+1)*fieldSize+x+1][y*fieldSize+y] = "+";
-				erg[x*fieldSize+x][(y+1)*fieldSize+y+1] = "+";
+		erg[0][0] = '+';
+		for(int column=0; column<theSquares.length; column++){
+			for(int row=0; row<theSquares[column].length; row++){
+				erg[(column+1)*fieldSize+column+1][(row+1)*fieldSize+row+1] = '+';
+				erg[(column+1)*fieldSize+column+1][row*fieldSize+row] = '+';
+				erg[column*fieldSize+column][(row+1)*fieldSize+row+1] = '+';
+				
+				ILine theLine = theSquares[column][row].getLines()[2];
+				if(theLine == null || !theLine.isOwnerNotSet()){
+					for(int i = 0; i<fieldSize; i++){
+						erg[column*fieldSize+i+1+column][(row*fieldSize)+fieldSize+1+row] = '|';
+					}
+				}
+				
+				theLine = theSquares[column][row].getLines()[1];
+				if(theLine == null || !theLine.isOwnerNotSet()){
+					for(int i=0; i<fieldSize; i++){
+							erg[column*fieldSize+fieldSize+1+column][(row*fieldSize+i+1)+row]= '-';
+					}
+				}
+				
+				if(column==0){
+					for(int i=0; i<fieldSize; i++){
+						erg[column*fieldSize+column][(row*fieldSize+i+1)+row]= '-';
+					}
+				}
+				
+				if(row==0){
+					for(int i=0; i<fieldSize; i++){
+						erg[column*fieldSize+i+1+column][(row*fieldSize)+row] = '|';
+					}
+				}
+				
+				
 			}
 		}
 		String resultString = "";
+		int rowNumber = 0;
 		for(int x=0; x<erg.length; x++){
-			for(int y=0; y<erg.length; y++){
+			for(int y=0; y<erg[x].length; y++){
 				resultString+=erg[x][y];
+			}
+			if(x%(fieldSize+1)==0){
+				resultString+=rowNumber;
+				rowNumber++;
 			}
 			resultString+="\n";
 		}
+		int columnNumber = 0;
+		for(int y = 0; y<erg[0].length; y++){
+			if(y%(fieldSize+1)==0){
+				resultString+=columnNumber;
+				columnNumber++;
+				for(int i = 0; i<fieldSize; i++){
+					resultString+=" ";
+				}
+			}
+		}
+		resultString+="\n";
 		return resultString;
 	}
 
