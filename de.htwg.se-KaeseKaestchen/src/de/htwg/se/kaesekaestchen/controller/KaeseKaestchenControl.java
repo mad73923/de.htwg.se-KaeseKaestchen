@@ -4,21 +4,24 @@ import java.awt.Color;
 
 import de.htwg.se.kaesekaestchen.event.UpdateUIEvent;
 import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
+import de.htwg.se.kaesekaestchen.model.IPlayField;
+import de.htwg.se.kaesekaestchen.model.IPlayer;
+import de.htwg.se.kaesekaestchen.model.IPoint;
 import de.htwg.se.kaesekaestchen.model.PlayField;
 import de.htwg.se.kaesekaestchen.model.Player;
 import de.htwg.se.kaesekaestchen.model.Point;
 import de.htwg.se.kaesekaestchen.util.Observable;
 
-public class KaeseKaestchenControl extends Observable{
+public class KaeseKaestchenControl extends Observable implements IKaeseKaestchenControl{
 
 	/**
 	 * @param args
 	 */
 	
-	private Player[] thePlayer;
+	private IPlayer[] thePlayer;
 	private int currentPlayerIndex;
 	
-	private PlayField thePlayField;
+	private IPlayField thePlayField;
 	private KaeseKaestchenState currentState;
 	private String warningMessage;
 	private String statusMessage;
@@ -29,9 +32,13 @@ public class KaeseKaestchenControl extends Observable{
 		currentPlayerIndex = -1;
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#startNewGame(java.lang.String[], java.awt.Color[], int, int)
+	 */
+	@Override
 	public void startNewGame(String[] playerNames, Color[] playerColors, int sizeX, int sizeY){
 		//TODO fetch if playerNames.length != playerColors.length
-		thePlayer = new Player[playerNames.length];
+		thePlayer = new IPlayer[playerNames.length];
 		for(int i=0; i<playerNames.length; i++){
 			thePlayer[i] = new Player(playerNames[i], playerColors[i]);
 		}
@@ -40,34 +47,62 @@ public class KaeseKaestchenControl extends Observable{
 		notifyObservers(new UpdateUIEvent());
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#newMove(int, int, int, int)
+	 */
+	@Override
 	public void newMove(int startX, int startY, int endX, int endY){
-		Point start = new Point(startX, startY);
+		IPoint start = new Point(startX, startY);
 		Point end = new Point(endX, endY);
 		currentState = new KaeseKaestchenStateMove(this);
 		currentState.nextState(thePlayField.setLineFromToPointWithPlayer(start, end, thePlayer[currentPlayerIndex]));
 
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#checkPlayfieldForCompleteSquares()
+	 */
+	@Override
 	public boolean checkPlayfieldForCompleteSquares(){
 		return thePlayField.checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(thePlayer[currentPlayerIndex]);		
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#pickNextPlayerAsCurrentPlayer()
+	 */
+	@Override
 	public void pickNextPlayerAsCurrentPlayer(){
 		currentPlayerIndex = (currentPlayerIndex+1)%(thePlayer.length);
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#getCurrentPlayerName()
+	 */
+	@Override
 	public String getCurrentPlayerName(){
 		return this.thePlayer[currentPlayerIndex].getName();
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#setCurrentState(de.htwg.se.kaesekaestchen.controller.KaeseKaestchenState)
+	 */
+	@Override
 	public void setCurrentState(KaeseKaestchenState theState){
 		currentState = theState;
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#setStatusMessage(java.lang.String)
+	 */
+	@Override
 	public void setStatusMessage(String theMessage){
 		statusMessage = theMessage;
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#setWarningMessage(java.lang.String)
+	 */
+	@Override
 	public void setWarningMessage(String theMessage){
 		warningMessage = theMessage;
 	}
@@ -80,18 +115,31 @@ public class KaeseKaestchenControl extends Observable{
 		return (int) (Math.random() * (high+1 - low) + low);
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#getWarningMessage()
+	 */
+	@Override
 	public String getWarningMessage() {
 		return warningMessage;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#getStatusMessage()
+	 */
+	@Override
 	public String getStatusMessage() {
 		return statusMessage;
 	}
 
-	public PlayField getPlayField(){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#getPlayField()
+	 */
+	@Override
+	public IPlayField getPlayField(){
 		return thePlayField;
 	}
 	
+
 	public String getPlayFieldString(){
 		return thePlayField.toString();
 	}
@@ -104,8 +152,11 @@ public class KaeseKaestchenControl extends Observable{
 		return playerPoints;
 		
 	}
-	
-	public Player getCurrentPlayer(){
+	/* (non-Javadoc)
+	 * @see de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl#getCurrentPlayer()
+	 */
+	@Override
+	public IPlayer getCurrentPlayer(){
 		try {
 			return thePlayer[currentPlayerIndex];
 		} catch (Exception e) {

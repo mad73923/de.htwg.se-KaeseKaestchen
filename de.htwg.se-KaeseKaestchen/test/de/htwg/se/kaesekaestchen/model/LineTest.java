@@ -13,7 +13,7 @@ import de.htwg.se.kaesekaestchen.model.Point;
 
 public class LineTest {
 	
-	Line theLine;
+	ILine theLine;
 
 	@Before
 	public void setUp() throws Exception {

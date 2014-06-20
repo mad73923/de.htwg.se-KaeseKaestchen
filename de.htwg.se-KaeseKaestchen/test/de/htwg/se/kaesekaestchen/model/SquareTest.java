@@ -14,12 +14,12 @@ import de.htwg.se.kaesekaestchen.model.Square;
 
 public class SquareTest {
     
-    Square theSquare;
-    Line[] theLines;
+    ISquare theSquare;
+    ILine[] theLines;
 
     @Before
     public void SetUp() throws Exception {
-    	theLines = new Line[] {new Line(new Point(0,0), new Point(1,0)), new Line(new Point(1,0), new Point(1,1)), new Line(new Point(1,1), new Point(0,1)), new Line(new Point(0,1), new Point(0,0))};
+    	theLines = new ILine[] {new Line(new Point(0,0), new Point(1,0)), new Line(new Point(1,0), new Point(1,1)), new Line(new Point(1,1), new Point(0,1)), new Line(new Point(0,1), new Point(0,0))};
         theSquare = new Square(theLines);
     }
     

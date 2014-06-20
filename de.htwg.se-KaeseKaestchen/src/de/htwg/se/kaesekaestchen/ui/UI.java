@@ -1,5 +1,6 @@
 package de.htwg.se.kaesekaestchen.ui;
 
+import de.htwg.se.kaesekaestchen.controller.IKaeseKaestchenControl;
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
 import de.htwg.se.kaesekaestchen.event.Event;
 import de.htwg.se.kaesekaestchen.event.MessageUIEvent;
@@ -10,7 +11,10 @@ import de.htwg.se.kaesekaestchen.util.IObserver;
 
 public abstract class UI implements IObserver{
 	
-	protected KaeseKaestchenControl theControl;
+
+	@SuppressWarnings("unused")
+	protected IKaeseKaestchenControl theControl;
+
 	
 	
 	public	UI(KaeseKaestchenControl pTheControl){	
