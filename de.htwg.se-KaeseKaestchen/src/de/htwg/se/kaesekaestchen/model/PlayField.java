@@ -20,30 +20,30 @@ public class PlayField implements IPlayField {
 		//TODO minimum size: 2x2
 		for(int x=0; x<sizeX; x++){
 			for(int y=0; y<sizeY; y++){
-				ILine[] lines = new ILine[4];
+				ILine[] lines = new ILine[ISquare.NUMBEROFLINES];
 				// handle top line
 				if(y == 0){
-					lines[0] = null;
+					lines[ISquare.TOPLINEINDEX] = null;
 				}else{
-					lines[0] = theSquares[x][y-1].getLines()[ISquare.BOTTOMLINEINDEX];
+					lines[ISquare.TOPLINEINDEX] = theSquares[x][y-1].getLines()[ISquare.BOTTOMLINEINDEX];
 				}
 				//handle right line
 				if(x == sizeX-1){
-					lines[1] = null;
+					lines[ISquare.RIGHTLINEINDEX] = null;
 				}else{
-					lines[1] = new Line(new Point(x+1,y), new Point(x+1, y+1));
+					lines[ISquare.RIGHTLINEINDEX] = new Line(new Point(x+1,y), new Point(x+1, y+1));
 				}
 				//handle bottom line
 				if(y == sizeY-1){
-					lines[2] = null;
+					lines[ISquare.BOTTOMLINEINDEX] = null;
 				}else{
-					lines[2] = new Line(new Point(x, y+1), new Point(x+1, y+1));
+					lines[ISquare.BOTTOMLINEINDEX] = new Line(new Point(x, y+1), new Point(x+1, y+1));
 				}
 				//handle left line
 				if(x == 0){
-					lines[3] = null;
+					lines[ISquare.LEFTLINEINDEX] = null;
 				}else {
-					lines[3] = theSquares[x-1][y].getLines()[ISquare.RIGHTLINEINDEX];
+					lines[ISquare.LEFTLINEINDEX] = theSquares[x-1][y].getLines()[ISquare.RIGHTLINEINDEX];
 				}
 				theSquares[x][y] = new Square(lines);
 			}

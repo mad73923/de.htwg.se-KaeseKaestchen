@@ -2,32 +2,32 @@ package de.htwg.se.kaesekaestchen.model;
 
 public interface IPoint {
 
-	public abstract int getValX();
+	abstract int getValX();
 
-	public abstract void setValX(int valX);
+	abstract void setValX(int valX);
 
-	public abstract int getValY();
+	abstract int getValY();
 
-	public abstract void setValY(int valY);
+	abstract void setValY(int valY);
 
-	public abstract boolean hasNegativeCoordinates();
+	abstract boolean hasNegativeCoordinates();
 
-	public abstract double getDistanceToPoint(Point p);
+	abstract double getDistanceToPoint(Point p);
 
-	public abstract boolean isUnderPoint(Point reference);
+	abstract boolean isUnderPoint(Point reference);
 
-	public abstract boolean isOverPoint(Point reference);
+	abstract boolean isOverPoint(Point reference);
 
-	public abstract boolean isLeftOfPoint(Point reference);
+	abstract boolean isLeftOfPoint(Point reference);
 
-	public abstract boolean isRightOfPoint(Point reference);
+	abstract boolean isRightOfPoint(Point reference);
 
-	public abstract boolean hasSameXValueAs(Point reference);
+	abstract boolean hasSameXValueAs(Point reference);
 
-	public abstract boolean hasSameYValueAs(Point reference);
+	abstract boolean hasSameYValueAs(Point reference);
 
-	public abstract boolean equals(Object obj);
+	abstract boolean equals(Object obj);
 
-	public abstract int hashCode();
+	abstract int hashCode();
 
 }

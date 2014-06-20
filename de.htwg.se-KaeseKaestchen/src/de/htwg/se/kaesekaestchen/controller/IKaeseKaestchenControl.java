@@ -7,29 +7,29 @@ import de.htwg.se.kaesekaestchen.model.IPlayer;
 
 public interface IKaeseKaestchenControl {
 
-	public abstract void startNewGame(String[] playerNames,
-			Color[] playerColors, int sizeX, int sizeY);
+	 abstract void startNewGame(String[] playerNames,
+	Color[] playerColors, int sizeX, int sizeY);
 
-	public abstract void newMove(int startX, int startY, int endX, int endY);
+	 abstract void newMove(int startX, int startY, int endX, int endY);
 
-	public abstract boolean checkPlayfieldForCompleteSquares();
+	 abstract boolean checkPlayfieldForCompleteSquares();
 
-	public abstract void pickNextPlayerAsCurrentPlayer();
+	 abstract void pickNextPlayerAsCurrentPlayer();
 
-	public abstract String getCurrentPlayerName();
+	 abstract String getCurrentPlayerName();
 
-	public abstract void setCurrentState(KaeseKaestchenState theState);
+	 abstract void setCurrentState(KaeseKaestchenState theState);
 
-	public abstract void setStatusMessage(String theMessage);
+	 abstract void setStatusMessage(String theMessage);
 
-	public abstract void setWarningMessage(String theMessage);
+	 abstract void setWarningMessage(String theMessage);
 
-	public abstract String getWarningMessage();
+	 abstract String getWarningMessage();
 
-	public abstract String getStatusMessage();
+	 abstract String getStatusMessage();
 
-	public abstract IPlayField getPlayField();
+	 abstract IPlayField getPlayField();
 
-	public abstract IPlayer getCurrentPlayer();
+	 abstract IPlayer getCurrentPlayer();
 
 }

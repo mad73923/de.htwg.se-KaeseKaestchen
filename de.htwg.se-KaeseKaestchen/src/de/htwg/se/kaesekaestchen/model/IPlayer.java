@@ -4,12 +4,12 @@ import java.awt.Color;
 
 public interface IPlayer {
 
-	public abstract void incrementPoints();
+	abstract void incrementPoints();
 
-	public abstract Color getColor();
+	abstract Color getColor();
 
-	public abstract String getName();
+	abstract String getName();
 
-	public abstract int getPoints();
+	abstract int getPoints();
 
 }

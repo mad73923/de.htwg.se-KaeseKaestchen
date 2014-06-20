@@ -2,17 +2,18 @@ package de.htwg.se.kaesekaestchen.model;
 
 public interface ISquare {
 
-	public static final int TOPLINEINDEX = 0;
-	public static final int RIGHTLINEINDEX = 1;
-	public static final int BOTTOMLINEINDEX = 2;
-	public static final int LEFTLINEINDEX = 3;
+	static final int TOPLINEINDEX = 0;
+	static final int RIGHTLINEINDEX = 1;
+	static final int BOTTOMLINEINDEX = 2;
+	static final int LEFTLINEINDEX = 3;
+	static final int NUMBEROFLINES = 4;
 
-	public abstract boolean allLinesHaveOwners();
+	abstract boolean allLinesHaveOwners();
 
-	public abstract boolean setOwner(IPlayer newOwner);
+	abstract boolean setOwner(IPlayer newOwner);
 
-	public abstract IPlayer getOwner();
+	abstract IPlayer getOwner();
 
-	public abstract ILine[] getLines();
+	abstract ILine[] getLines();
 
 }

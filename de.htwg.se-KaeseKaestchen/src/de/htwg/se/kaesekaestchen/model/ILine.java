@@ -2,12 +2,12 @@ package de.htwg.se.kaesekaestchen.model;
 
 public interface ILine {
 
-	public abstract boolean isOwnerNotSet();
+	abstract boolean isOwnerNotSet();
 
-	public abstract boolean setOwner(IPlayer newOwner);
+	abstract boolean setOwner(IPlayer newOwner);
 
-	public abstract IPlayer getOwner();
+	abstract IPlayer getOwner();
 
-	public abstract double getLength();
+	abstract double getLength();
 
 }

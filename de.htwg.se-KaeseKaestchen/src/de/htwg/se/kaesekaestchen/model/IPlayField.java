@@ -4,18 +4,18 @@ import de.htwg.se.kaesekaestchen.event.Event;
 
 public interface IPlayField {
 
-	public abstract Event setLineFromToPointWithPlayer(IPoint start, Point end,
-			IPlayer owner);
+	abstract Event setLineFromToPointWithPlayer(IPoint start, Point end,
+	IPlayer owner);
 
-	public abstract boolean checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(
-			IPlayer currentPlayer);
+	abstract boolean checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(
+	IPlayer currentPlayer);
 
-	public abstract boolean areThereEmptyLines();
+	abstract boolean areThereEmptyLines();
 
-	public abstract boolean isValidLineAllegation(IPoint from, Point to);
+	abstract boolean isValidLineAllegation(IPoint from, Point to);
 
-	public abstract ISquare[][] getTheSquares();
+	abstract ISquare[][] getTheSquares();
 
-	public abstract String toString();
+	abstract String toString();
 
 }
