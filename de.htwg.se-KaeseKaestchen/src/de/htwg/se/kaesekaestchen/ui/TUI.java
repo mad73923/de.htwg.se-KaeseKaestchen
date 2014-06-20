@@ -12,6 +12,7 @@ public class TUI extends UI {
 	
 	public TUI(KaeseKaestchenControl pTheControl){
 		super(pTheControl);
+		showWelcomeMessage();
 	}
 
 	@Override
@@ -127,7 +128,4 @@ public class TUI extends UI {
 		System.out.print(s);
 	}
 	
-	public void outPrint(){
-		showWelcomeMessage();
-	}
 }
