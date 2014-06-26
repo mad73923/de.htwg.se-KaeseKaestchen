@@ -7,7 +7,7 @@ public class KaeseKaestchenStateLineAlreadySet extends KaeseKaestchenState {
 
 	public KaeseKaestchenStateLineAlreadySet(KaeseKaestchenControl pTheControl) {
 		super(pTheControl);
-		theControl.setWarningMessage("This line is already set!");
+		theControl.setWarningMessage("This line is already set!\n");
 		theControl.notifyObservers(new WarningUIEvent());
 	}
 

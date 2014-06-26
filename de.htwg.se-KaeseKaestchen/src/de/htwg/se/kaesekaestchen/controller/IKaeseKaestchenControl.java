@@ -30,6 +30,7 @@ public interface IKaeseKaestchenControl {
 
 	 abstract IPlayField getPlayField();
 
+	 abstract boolean isLineSet(int startX, int startY, int  endX, int endY);
 
 	 abstract IPlayer getCurrentPlayer();
 	

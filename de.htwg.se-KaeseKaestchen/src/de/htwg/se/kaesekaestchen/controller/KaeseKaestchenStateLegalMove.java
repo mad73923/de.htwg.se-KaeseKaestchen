@@ -12,7 +12,7 @@ public class KaeseKaestchenStateLegalMove extends KaeseKaestchenState {
 			theControl.notifyObservers(new UpdateUIEvent());
 		}else{
 			theControl.pickNextPlayerAsCurrentPlayer();
-			theControl.setStatusMessage("\n" + theControl.getCurrentPlayerName()+", it's your turn.");
+			theControl.setStatusMessage("\n" + theControl.getCurrentPlayerName()+", it's your turn.\n");
 			theControl.notifyObservers(new UpdateUIEvent());
 			theControl.notifyObservers(new MessageUIEvent());                                              
 		}

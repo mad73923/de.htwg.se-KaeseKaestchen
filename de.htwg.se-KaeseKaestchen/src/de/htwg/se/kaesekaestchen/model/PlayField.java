@@ -1,5 +1,7 @@
 package de.htwg.se.kaesekaestchen.model;
 
+import javax.swing.JPanel;
+
 import de.htwg.se.kaesekaestchen.event.Event;
 import de.htwg.se.kaesekaestchen.event.LineAlreadySetEvent;
 import de.htwg.se.kaesekaestchen.event.NotValidLineAllegationEvent;
@@ -55,6 +57,12 @@ public class PlayField implements IPlayField {
 		
 	}
 	
+	private boolean lineIsHorizontal(IPoint start, IPoint end){
+		if(start.getValY() == end.getValY()) {
+			return true;
+		}
+		return false;
+	}
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.se.kaesekaestchen.model.IPlayField#setLineFromToPointWithPlayer(de.htwg.se.kaesekaestchen.model.Point, de.htwg.se.kaesekaestchen.model.Point, de.htwg.se.kaesekaestchen.model.IPlayer)
@@ -71,10 +79,8 @@ public class PlayField implements IPlayField {
 			pStart = pEnd;
 			pEnd = temp;
 		}
-		boolean lineIshorizontal = false;
-		if(pStart.getValY() == pEnd.getValY()) {
-			lineIshorizontal = true;
-		}
+		boolean lineIshorizontal = this.lineIsHorizontal(start, end);
+		
 		return this.setLineInSquares(lineIshorizontal, theSquares[pStart.getValX()][pStart.getValY()], owner);
 	}
 	
@@ -238,6 +244,35 @@ public class PlayField implements IPlayField {
 		}
 		resultString+="\n";
 		return resultString;
+	}
+
+
+	@Override
+	public int getNumberOfRows() {
+		// TODO Auto-generated method stub
+		return theSquares.length;
+	}
+
+
+	@Override
+	public int getNumberOfColumns() {
+		// TODO Auto-generated method stub
+		return theSquares[0].length;
+	}
+
+
+	@Override
+	public boolean isLineSet(Point point, Point point2) {
+		int lineIndex = ISquare.RIGHTLINEINDEX;
+		if(!this.lineIsHorizontal(point, point2)){
+			lineIndex = ISquare.BOTTOMLINEINDEX;
+		}		
+		if(theSquares[point.getValX()][point.getValY()].getLines()[lineIndex] != null){
+			if(theSquares[point.getValX()][point.getValY()].getLines()[lineIndex].isOwnerNotSet()){
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

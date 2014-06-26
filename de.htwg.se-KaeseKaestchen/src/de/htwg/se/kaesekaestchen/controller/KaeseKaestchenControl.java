@@ -164,6 +164,11 @@ public class KaeseKaestchenControl extends Observable implements IKaeseKaestchen
 		}
 		return null;
 	}
+
+	@Override
+	public boolean isLineSet(int startX, int startY, int endX, int endY) {
+		return thePlayField.isLineSet(new Point(startX, startY), new Point(endX, endY));
+	}
 	
 
 }

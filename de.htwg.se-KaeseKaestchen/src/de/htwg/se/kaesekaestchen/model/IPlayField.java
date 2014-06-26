@@ -9,6 +9,10 @@ public interface IPlayField {
 
 	abstract boolean checkForCompleteSquaresWithoutOwnerAndSetCurrentPlayer(
 	IPlayer currentPlayer);
+	
+	abstract int getNumberOfRows();
+	
+	abstract int getNumberOfColumns();
 
 	abstract boolean areThereEmptyLines();
 
@@ -17,5 +21,7 @@ public interface IPlayField {
 	abstract ISquare[][] getTheSquares();
 
 	abstract String toString();
+
+	abstract boolean isLineSet(Point point, Point point2);
 
 }
