@@ -1,9 +1,10 @@
 package de.htwg.se.kaesekaestchen.util;
 
-import de.htwg.se.kaesekaestchen.event.Event;
-
 public interface IObserver {
 	
-	public void update(Event somethingHappend);
+	public void refreshUI();
+	public void showWelcomeMessage();
+	public void showMessage();
+	public void showWarning();
 
 }

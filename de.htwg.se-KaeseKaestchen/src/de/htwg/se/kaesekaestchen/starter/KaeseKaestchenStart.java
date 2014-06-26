@@ -1,5 +1,6 @@
 package de.htwg.se.kaesekaestchen.starter;
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.kaesekaestchen.ui.GUI;
 import de.htwg.se.kaesekaestchen.ui.TUI;
 
 
@@ -13,9 +14,9 @@ public class KaeseKaestchenStart {
 	}
 	public static void main(String[] args) {
 		KaeseKaestchenControl control = new KaeseKaestchenControl();
-		TUI tui = new TUI(control);
-		tui.outPrint();
-		
+		//TUI tui = new TUI(control);
+		//tui.outPrint();
+		GUI gui = new GUI(control);
 	}
 
 }

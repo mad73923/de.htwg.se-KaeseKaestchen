@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import de.htwg.se.kaesekaestchen.event.Event;
+import de.htwg.se.kaesekaestchen.event.MessageUIEvent;
+import de.htwg.se.kaesekaestchen.event.UpdateUIEvent;
+import de.htwg.se.kaesekaestchen.event.WarningUIEvent;
+import de.htwg.se.kaesekaestchen.event.WelcomeUIEvent;
 
 public class Observable {
 	
@@ -24,7 +28,17 @@ public class Observable {
 	public void notifyObservers(Event whatHappend) {
 		for ( Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
 			IObserver observer = iter.next();
-			observer.update(whatHappend);
+			if(whatHappend.getClass().equals(UpdateUIEvent.class)){
+				observer.refreshUI();
+			}else if(whatHappend.getClass().equals(WelcomeUIEvent.class)){
+				observer.showWelcomeMessage();
+			}else if(whatHappend.getClass().equals(MessageUIEvent.class)){
+				observer.showMessage();
+			}else if(whatHappend.getClass().equals(WarningUIEvent.class)){
+				observer.showWarning();
+			}else{
+				System.out.println("Event not Supported: "+whatHappend.getClass().toString());
+			}
 		}
 	}
 

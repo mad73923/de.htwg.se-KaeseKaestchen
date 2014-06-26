@@ -1,21 +1,22 @@
 package de.htwg.se.kaesekaestchen.ui;
 
 import de.htwg.se.kaesekaestchen.controller.KaeseKaestchenControl;
+import de.htwg.se.kaesekaestchen.util.IObserver;
 
 import java.awt.Color;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class TUI extends UI {
+public class TUI implements IObserver {
 	private Scanner in = new Scanner(System.in);
 	private Color[] colors= {Color.black, Color.blue, Color.green, Color.magenta, Color.orange, Color.red, Color.yellow};
-	
+	private KaeseKaestchenControl theControl;
 	public TUI(KaeseKaestchenControl pTheControl){
-		super(pTheControl);
+		theControl = pTheControl;
 	}
 
 	@Override
-	protected void refreshUI() {
+	public void refreshUI() {
 		printStringln(theControl.getPlayFieldString());
 		
 	}
@@ -110,12 +111,12 @@ public class TUI extends UI {
 	}
 
 	@Override
-	protected void showMessage() {
+	public void showMessage() {
 		printStringln(theControl.getStatusMessage());	
 	}
 
 	@Override
-	protected void showWarning() {
+	public void showWarning() {
 		printStringln(theControl.getWarningMessage());
 	}
 
