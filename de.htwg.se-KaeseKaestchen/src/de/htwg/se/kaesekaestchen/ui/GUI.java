@@ -82,28 +82,36 @@ public class GUI extends JFrame implements IObserver {
 	
 
 	public void drawPlayPanel(){
-		
+		if(buttons != null){
+			for(int i=0; i<buttons.length; i++){
+				for(int j=0; j<buttons[i].length; j++){
+					playPanel.remove(buttons[i][j]);
+				}
+			}
+		}
 		int columns = theControl.getPlayField().getNumberOfColumns();
 		int rows = theControl.getPlayField().getNumberOfRows();
 		buttons = new JButton[columns+1][rows+1];
 		for(int i=0; i<columns; i++){
 			for(int j=0; j<rows; j++){
 				buttons[i][j+1] = new JButton();
-				buttons[i][j+1].setBounds(50*i+75+i*20, 50*j+25+j*10, 20, 50);
+				buttons[i][j+1].setBounds(50*i+i*20+25, 50*j+75+j*10, 50, 20);
+				
 				if(theControl.isLineSet(i, j, i+1, j)){
 					buttons[i][j+1].setBackground(Color.black);
 					buttons[i][j+1].setEnabled(false);
 				}else{
-					buttons[i][j+1].addActionListener(new KaeseListener(i, j, false));
+					buttons[i][j+1].addActionListener(new KaeseListener(i, j, true));
 				}
 				playPanel.add(buttons[i][j+1]);
+				
 				buttons[i+1][j+1] = new JButton();
-				buttons[i+1][j+1].setBounds(50*i+i*20+25, 50*j+75+j*10, 50, 20);
+				buttons[i+1][j+1].setBounds(50*i+75+i*20, 50*j+25+j*10, 20, 50);
 				if(theControl.isLineSet(i, j, i, j+1)){
 					buttons[i+1][j+1].setBackground(Color.black);
 					buttons[i+1][j+1].setEnabled(false);
 				}else{
-					buttons[i+1][j+1].addActionListener(new KaeseListener(i, j, true));
+					buttons[i+1][j+1].addActionListener(new KaeseListener(i, j, false));
 				}
 				playPanel.add(buttons[i+1][j+1]);
 				
@@ -125,6 +133,7 @@ public class GUI extends JFrame implements IObserver {
 				
 			}
 		}
+		this.repaint();
 	}
 
 	@Override
@@ -163,9 +172,9 @@ public class GUI extends JFrame implements IObserver {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(horiz){
-				theControl.newMove(i, j+1, i+1, j+1);
+				theControl.newMove(i, j, i+1, j);
 			}else{
-				theControl.newMove(i+1, j, i+1, j+1);
+				theControl.newMove(i, j, i, j+1);
 			}
 			
 		}

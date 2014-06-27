@@ -85,9 +85,9 @@ public class PlayField implements IPlayField {
 	}
 	
 	private Event setLineInSquares(boolean lineHorizontal, ISquare theSquare, IPlayer owner){
-		int lineIndex = ISquare.TOPLINEINDEX;
+		int lineIndex = ISquare.BOTTOMLINEINDEX;
 		if(!lineHorizontal){
-			lineIndex = ISquare.LEFTLINEINDEX;
+			lineIndex = ISquare.RIGHTLINEINDEX;
 		}
 		if(theSquare.getLines()[lineIndex].setOwner(owner)){
 			return new OKEvent();
