@@ -55,10 +55,10 @@ public class GUI extends JFrame implements IObserver {
 		});
 		panel_1.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("Undo");
 		panel_1.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		JButton btnNewButton_2 = new JButton("Exit");
 		panel_1.add(btnNewButton_2);
 		
 		JPanel panel_2 = new JPanel();
