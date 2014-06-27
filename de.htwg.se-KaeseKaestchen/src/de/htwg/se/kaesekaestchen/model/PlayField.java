@@ -264,7 +264,7 @@ public class PlayField implements IPlayField {
 	@Override
 	public boolean isLineSet(Point point, Point point2) {
 		int lineIndex = ISquare.RIGHTLINEINDEX;
-		if(!this.lineIsHorizontal(point, point2)){
+		if(this.lineIsHorizontal(point, point2)){
 			lineIndex = ISquare.BOTTOMLINEINDEX;
 		}		
 		if(theSquares[point.getValX()][point.getValY()].getLines()[lineIndex] != null){

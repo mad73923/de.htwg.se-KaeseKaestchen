@@ -94,7 +94,7 @@ public class GUI extends JFrame implements IObserver {
 					buttons[i][j+1].setBackground(Color.black);
 					buttons[i][j+1].setEnabled(false);
 				}else{
-					buttons[i][j+1].addActionListener(new KaeseListener(i, j, true));
+					buttons[i][j+1].addActionListener(new KaeseListener(i, j, false));
 				}
 				playPanel.add(buttons[i][j+1]);
 				buttons[i+1][j+1] = new JButton();
@@ -103,7 +103,7 @@ public class GUI extends JFrame implements IObserver {
 					buttons[i+1][j+1].setBackground(Color.black);
 					buttons[i+1][j+1].setEnabled(false);
 				}else{
-					buttons[i+1][j+1].addActionListener(new KaeseListener(i, j, false));
+					buttons[i+1][j+1].addActionListener(new KaeseListener(i, j, true));
 				}
 				playPanel.add(buttons[i+1][j+1]);
 				
@@ -140,12 +140,12 @@ public class GUI extends JFrame implements IObserver {
 
 	@Override
 	public void showMessage() {
-		//textArea.append(theControl.getStatusMessage());		
+		textArea.append(theControl.getStatusMessage());		
 	}
 
 	@Override
 	public void showWarning() {
-		//textArea.append(theControl.getWarningMessage());	
+		textArea.append(theControl.getWarningMessage());	
 	}
 	
 	private class KaeseListener implements ActionListener{
@@ -162,10 +162,10 @@ public class GUI extends JFrame implements IObserver {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(!horiz){
-				theControl.newMove(i, j, i+1, j);
+			if(horiz){
+				theControl.newMove(i, j+1, i+1, j+1);
 			}else{
-				theControl.newMove(i, j, i, j+1);
+				theControl.newMove(i+1, j, i+1, j+1);
 			}
 			
 		}
